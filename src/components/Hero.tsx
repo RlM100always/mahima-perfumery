@@ -20,11 +20,11 @@ export const Hero: React.FC = () => {
                 <span className="font-medium text-sm sm:text-base">প্রিমিয়াম ফ্রেগরেন্স কালেকশন</span>
               </div>
               
-              <div className="flex items-center justify-center lg:justify-start mb-4">
+              <div className="flex items-center justify-center lg:justify-start">
                 <img 
-                  src="/WhatsApp_Image_2025-06-10_at_09.28.46_d6d3425e-removebg-preview.png" 
+                  src="/logo.png" 
                   alt="Mahima Perfumery Co." 
-                  className="h-16 w-auto filter brightness-0 invert"
+                  className="h-[6rem] w-[auto] filter brightness-0 invert"
                 />
               </div>
               
@@ -32,8 +32,12 @@ export const Hero: React.FC = () => {
                 <span className="bg-gradient-to-r from-yellow-400 to-pink-400 bg-clip-text text-transparent">
                   Aroma
                 </span>
-                <br />
-                পারফিউম কালেকশন
+              
+                <div className='mt-4'>
+                  পারফিউম কালেকশন
+                </div>
+      
+              
               </h1>
               
               <p className="text-base sm:text-lg lg:text-xl text-purple-100 leading-relaxed max-w-lg mx-auto lg:mx-0">

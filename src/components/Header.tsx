@@ -22,11 +22,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => 
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => onPageChange('home')}>
-            <img 
-              src="/WhatsApp_Image_2025-06-10_at_09.28.46_d6d3425e-removebg-preview.png" 
-              alt="Mahima Perfumery Co." 
-              className="h-10 w-auto mr-3"
-            />
+           
             <div>
               <h1 className="text-xl font-bold text-gray-900">Mahima Perfumery</h1>
               <p className="text-xs text-purple-600">Premium Fragrances</p>
