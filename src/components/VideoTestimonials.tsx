@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Pause, Volume2, VolumeX, Star, CheckCircle } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Star, CheckCircle, MessageCircle } from 'lucide-react';
 
 interface VideoTestimonial {
   id: string;
