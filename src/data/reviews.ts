@@ -3,50 +3,109 @@ import { Review } from '../types';
 export const reviews: Review[] = [
   {
     id: '1',
-    name: 'আহমেদ হোসেন',
+    name: 'আহমেদ হাসান',
     rating: 5,
-    comment: 'অসাধারণ কোয়ালিটি! দাম অনুযায়ী সেরা পারফিউম। দীর্ঘক্ষণ থাকে এবং সুগন্ধ চমৎকার।',
-    date: '২০২৪-১২-১৫',
-    verified: true
+    comment: 'অসাধারণ পারফিউম! দীর্ঘক্ষণ টিকে থাকে এবং সুগন্ধ খুবই ভালো। দাম অনুযায়ী কোয়ালিটি চমৎকার।',
+    date: '১৫ ডিসেম্বর, ২০২৪',
+    verified: true,
+    source: 'whatsapp',
+    images: [
+      'https://images.pexels.com/photos/965990/pexels-photo-965990.jpeg',
+      'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg'
+    ],
+    productName: 'Aroma Black Edition',
+    location: 'ঢাকা'
   },
   {
     id: '2',
-    name: 'ফাতেমা খাতুন',
+    name: 'ফাতিমা খান',
     rating: 5,
-    comment: 'আমি Aroma Rose Elegance কিনেছি। খুবই ভালো লেগেছে। সবাই প্রশংসা করে।',
-    date: '২০২৪-১২-১০',
-    verified: true
+    comment: 'আমার খুব পছন্দের পারফিউম। অফিসে সবাই প্রশংসা করে। প্যাকেজিং ও খুব সুন্দর।',
+    date: '১২ ডিসেম্বর, ২০২৪',
+    verified: true,
+    source: 'facebook',
+    images: [
+      'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg'
+    ],
+    productName: 'Aroma Rose Gold',
+    location: 'চট্টগ্রাম'
   },
   {
     id: '3',
-    name: 'রফিকুল ইসলাম',
+    name: 'রাহুল আহমেদ',
     rating: 4,
-    comment: 'স্টুডেন্ট হিসেবে বাজেটের মধ্যে এত ভালো পারফিউম পেয়েছি। ধন্যবাদ মাহিমা পারফিউমারি।',
-    date: '২০২৪-১২-০৮',
-    verified: true
+    comment: 'ভালো পণ্য। দাম কম হলেও কোয়ালিটি ভালো। আবার কিনব।',
+    date: '১০ ডিসেম্বর, ২০২৪',
+    verified: true,
+    source: 'google',
+    productName: 'Aroma Premium',
+    location: 'সিলেট'
   },
   {
     id: '4',
-    name: 'নাসরিন আক্তার',
+    name: 'নাদিয়া ইসলাম',
     rating: 5,
-    comment: 'অফিসে ব্যবহারের জন্য নিয়েছিলাম। সকলেই জানতে চায় কোন পারফিউম ব্যবহার করি।',
-    date: '২০২৪-১২-০৫',
-    verified: true
+    comment: 'চমৎকার সার্ভিস! দ্রুত ডেলিভারি এবং পণ্যের মান অসাধারণ। সবার কাছে রেকমেন্ড করব।',
+    date: '৮ ডিসেম্বর, ২০২৪',
+    verified: true,
+    source: 'whatsapp',
+    images: [
+      'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg',
+      'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg',
+      'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg'
+    ],
+    productName: 'Aroma Floral',
+    location: 'রাজশাহী'
   },
   {
     id: '5',
-    name: 'করিম উদ্দিন',
+    name: 'মাহবুব রহমান',
     rating: 5,
-    comment: 'প্যাকেজিং খুব সুন্দর। গিফট হিসেবে দিয়েছিলাম, সবাই খুশি হয়েছে।',
-    date: '২০২৪-১২-০২',
-    verified: true
+    comment: 'স্টুডেন্ট হিসেবে আমার বাজেটের মধ্যে এত ভালো পারফিউম পেয়েছি। ধন্যবাদ Mahima Perfumery কে।',
+    date: '৫ ডিসেম্বর, ২০২৪',
+    verified: true,
+    source: 'facebook',
+    productName: 'Aroma Classic',
+    location: 'বরিশাল'
   },
   {
     id: '6',
-    name: 'সালমা বেগম',
+    name: 'সারা বেগম',
     rating: 4,
-    comment: 'দ্রুত ডেলিভারি এবং ভালো কাস্টমার সার্ভিস। পণ্যের মানও খুব ভালো।',
-    date: '২০২৪-১১-২৮',
-    verified: true
+    comment: 'পণ্যের মান ভালো। তবে আরো বেশি ভ্যারিয়েন্ট থাকলে ভালো হতো।',
+    date: '৩ ডিসেম্বর, ২০২৪',
+    verified: true,
+    source: 'google',
+    images: [
+      'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg'
+    ],
+    productName: 'Aroma Luxury',
+    location: 'খুলনা'
+  },
+  {
+    id: '7',
+    name: 'তানভীর হোসেন',
+    rating: 5,
+    comment: 'অফিসিয়াল মিটিংয়ে ব্যবহার করি। সবসময় কমপ্লিমেন্ট পাই। দারুণ পণ্য!',
+    date: '১ ডিসেম্বর, ২০২৪',
+    verified: true,
+    source: 'whatsapp',
+    productName: 'Aroma Executive',
+    location: 'ঢাকা'
+  },
+  {
+    id: '8',
+    name: 'রুমানা আক্তার',
+    rating: 5,
+    comment: 'গিফট হিসেবে নিয়েছিলাম। প্যাকেজিং এত সুন্দর যে গিফট র‍্যাপিং এর দরকার হয়নি।',
+    date: '২৮ নভেম্বর, ২০২৪',
+    verified: true,
+    source: 'facebook',
+    images: [
+      'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg',
+      'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg'
+    ],
+    productName: 'Aroma Gift Set',
+    location: 'কুমিল্লা'
   }
 ];

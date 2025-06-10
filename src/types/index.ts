@@ -24,4 +24,8 @@ export interface Review {
   comment: string;
   date: string;
   verified: boolean;
+  source?: 'whatsapp' | 'facebook' | 'google';
+  images?: string[];
+  productName?: string;
+  location?: string;
 }
