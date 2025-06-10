@@ -1,20 +1,28 @@
 import React from 'react';
 import { MapPin, Phone, Mail, MessageCircle, Facebook, Clock } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onPageChange: (page: string) => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
+  const handleNavigation = (page: string) => {
+    onPageChange(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {/* Company Info */}
           <div className="col-span-1 sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center mb-2">
+            <div className="flex items-center mb-4">
               <img 
                 src="/logo.png" 
                 alt="Mahima Perfumery Co." 
-                className="h-[6rem] w-[auto] mr-3 filter brightness-0 invert"
+                className="h-16 w-auto mr-3 filter brightness-0 invert"
               />
-              
             </div>
             <p className="text-gray-300 mb-4 text-sm sm:text-base leading-relaxed">
               স্টুডেন্ট ও পেশাজীবীদের জন্য সাশ্রয়ী মূল্যে প্রিমিয়াম কোয়ালিটির পারফিউম। 
@@ -41,33 +49,103 @@ export const Footer: React.FC = () => {
               </a>
             </div>
           </div>
-          
 
           {/* Quick Links */}
-          <div className="col-span-1 pt-8">
+          <div className="col-span-1">
             <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">দ্রুত লিংক</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">হোম</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">আমাদের সম্পর্কে</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">প্রোডাক্ট</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">কাস্টমার রিভিউ</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">যোগাযোগ</a></li>
+              <li>
+                <button 
+                  onClick={() => handleNavigation('home')}
+                  className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base text-left w-full"
+                >
+                  হোম
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleNavigation('about')}
+                  className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base text-left w-full"
+                >
+                  আমাদের সম্পর্কে
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleNavigation('home')}
+                  className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base text-left w-full"
+                >
+                  প্রোডাক্ট
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleNavigation('reviews')}
+                  className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base text-left w-full"
+                >
+                  কাস্টমার রিভিউ
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleNavigation('contact')}
+                  className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base text-left w-full"
+                >
+                  যোগাযোগ
+                </button>
+              </li>
             </ul>
           </div>
 
           {/* Categories */}
-          <div className="col-span-1 pt-8">
+          <div className="col-span-1">
             <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">ক্যাটেগরি</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">পুরুষদের পারফিউম</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">মহিলাদের পারফিউম</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">পাইকারি বিক্রয়</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">খুচরা বিক্রয়</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">গিফট প্যাকেজ</a></li>
+              <li>
+                <button 
+                  onClick={() => handleNavigation('home')}
+                  className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base text-left w-full"
+                >
+                  পুরুষদের পারফিউম
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleNavigation('home')}
+                  className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base text-left w-full"
+                >
+                  মহিলাদের পারফিউম
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleNavigation('home')}
+                  className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base text-left w-full"
+                >
+                  পাইকারি বিক্রয়
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleNavigation('home')}
+                  className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base text-left w-full"
+                >
+                  খুচরা বিক্রয়
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleNavigation('home')}
+                  className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base text-left w-full"
+                >
+                  গিফট প্যাকেজ
+                </button>
+              </li>
             </ul>
           </div>
+
           {/* Contact Info */}
-          <div className="col-span-1 sm:col-span-2 lg:col-span-1 pt-8">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-1">
             <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">যোগাযোগ</h4>
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
@@ -88,21 +166,13 @@ export const Footer: React.FC = () => {
               </div>
             </div>
           </div>
-
-
         </div>
-
-
-
 
         <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center">
           <p className="text-gray-400 text-xs sm:text-sm">
             © 2024 Mahima Perfumery Co. সর্বস্বত্ব সংরক্ষিত। | ডিজাইন ও ডেভেলপমেন্ট
           </p>
         </div>
-
-
-
       </div>
     </footer>
   );

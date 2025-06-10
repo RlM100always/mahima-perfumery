@@ -35,7 +35,7 @@ function App() {
         {renderPage()}
       </main>
       
-      <Footer />
+      <Footer onPageChange={setCurrentPage} />
     </div>
   );
 }
