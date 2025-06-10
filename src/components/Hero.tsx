@@ -20,6 +20,14 @@ export const Hero: React.FC = () => {
                 <span className="font-medium text-sm sm:text-base">প্রিমিয়াম ফ্রেগরেন্স কালেকশন</span>
               </div>
               
+              <div className="flex items-center justify-center lg:justify-start mb-4">
+                <img 
+                  src="/WhatsApp_Image_2025-06-10_at_09.28.46_d6d3425e-removebg-preview.png" 
+                  alt="Mahima Perfumery Co." 
+                  className="h-16 w-auto filter brightness-0 invert"
+                />
+              </div>
+              
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 <span className="bg-gradient-to-r from-yellow-400 to-pink-400 bg-clip-text text-transparent">
                   Aroma

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, MapPin, Phone, Mail, MessageCircle, Facebook, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, MessageCircle, Facebook, Clock } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -9,7 +9,11 @@ export const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="col-span-1 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center mb-4">
-              <Star className="h-6 w-6 sm:h-8 sm:w-8 text-purple-400 mr-2" />
+              <img 
+                src="/WhatsApp_Image_2025-06-10_at_09.28.46_d6d3425e-removebg-preview.png" 
+                alt="Mahima Perfumery Co." 
+                className="h-8 w-auto mr-3 filter brightness-0 invert"
+              />
               <div>
                 <h3 className="text-lg sm:text-xl font-bold">Mahima Perfumery</h3>
                 <p className="text-xs sm:text-sm text-purple-300">Premium Fragrances</p>

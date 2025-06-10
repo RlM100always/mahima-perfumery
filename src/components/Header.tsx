@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Star, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 
 interface HeaderProps {
   currentPage: string;
@@ -22,7 +22,11 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => 
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => onPageChange('home')}>
-            <Star className="h-8 w-8 text-purple-600 mr-2" />
+            <img 
+              src="/WhatsApp_Image_2025-06-10_at_09.28.46_d6d3425e-removebg-preview.png" 
+              alt="Mahima Perfumery Co." 
+              className="h-10 w-auto mr-3"
+            />
             <div>
               <h1 className="text-xl font-bold text-gray-900">Mahima Perfumery</h1>
               <p className="text-xs text-purple-600">Premium Fragrances</p>

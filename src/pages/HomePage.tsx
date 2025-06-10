@@ -8,14 +8,17 @@ import { products } from '../data/products';
 export const HomePage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedGender, setSelectedGender] = useState('all');
+  const [selectedBottleSize, setSelectedBottleSize] = useState('all');
 
   const categories = ['all', 'wholesale', 'retail', 'package'];
   const genders = ['all', 'men', 'women'];
+  const bottleSizes = [15, 30, 50];
 
   const filteredProducts = products.filter(product => {
     const categoryMatch = selectedCategory === 'all' || product.category === selectedCategory;
     const genderMatch = selectedGender === 'all' || product.gender === selectedGender;
-    return categoryMatch && genderMatch;
+    const sizeMatch = selectedBottleSize === 'all' || product.ml.toString() === selectedBottleSize;
+    return categoryMatch && genderMatch && sizeMatch;
   });
 
   return (
@@ -36,10 +39,13 @@ export const HomePage: React.FC = () => {
           <ProductFilter
             categories={categories}
             genders={genders}
+            bottleSizes={bottleSizes}
             selectedCategory={selectedCategory}
             selectedGender={selectedGender}
+            selectedBottleSize={selectedBottleSize}
             onCategoryChange={setSelectedCategory}
             onGenderChange={setSelectedGender}
+            onBottleSizeChange={setSelectedBottleSize}
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
