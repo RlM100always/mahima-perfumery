@@ -1,25 +1,29 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Package } from 'lucide-react';
 
-interface LazyImageProps {
+interface OptimizedImageProps {
   src: string;
   alt: string;
   className?: string;
   placeholder?: string;
+  priority?: boolean;
 }
 
-export const LazyImage: React.FC<LazyImageProps> = ({ 
+export const OptimizedImage: React.FC<OptimizedImageProps> = ({ 
   src, 
   alt, 
   className = '', 
-  placeholder 
+  placeholder,
+  priority = false
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
+  const [isInView, setIsInView] = useState(priority);
   const [hasError, setHasError] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const imgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (priority) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -27,7 +31,10 @@ export const LazyImage: React.FC<LazyImageProps> = ({
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { 
+        threshold: 0.1,
+        rootMargin: '50px'
+      }
     );
 
     if (imgRef.current) {
@@ -35,7 +42,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [priority]);
 
   const handleLoad = () => {
     setIsLoaded(true);
@@ -52,10 +59,9 @@ export const LazyImage: React.FC<LazyImageProps> = ({
       {!isLoaded && (
         <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
           {placeholder ? (
-            <img 
-              src={placeholder} 
-              alt="" 
-              className="w-full h-full object-cover opacity-50"
+            <div 
+              className="w-full h-full bg-cover bg-center opacity-50"
+              style={{ backgroundImage: `url(${placeholder})` }}
             />
           ) : (
             <Package className="h-8 w-8 text-gray-400" />
@@ -80,7 +86,8 @@ export const LazyImage: React.FC<LazyImageProps> = ({
           }`}
           onLoad={handleLoad}
           onError={handleError}
-          loading="lazy"
+          loading={priority ? 'eager' : 'lazy'}
+          decoding="async"
         />
       )}
     </div>

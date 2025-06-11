@@ -1,7 +1,7 @@
 import React from 'react';
 import { Star, CheckCircle, MessageCircle, Facebook, Mail } from 'lucide-react';
 import { Review } from '../types';
-import { LazyImage } from './LazyImage';
+import { OptimizedImage } from './OptimizedImage';
 
 interface ReviewCardProps {
   review: Review;
@@ -38,8 +38,8 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
     <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition-shadow">
       <div className="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-4">
         {/* Profile Section */}
-        <div className="flex items-start space-x-3 sm:space-x-0 sm:flex-col sm:items-center">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-lg flex-shrink-0">
+        <div className="flex items-start space-x-3 sm:space-x-0 sm:flex-col sm:items-center flex-shrink-0">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-lg">
             {review.name.charAt(0)}
           </div>
           
@@ -47,8 +47,8 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
           {review.images && review.images.length > 0 && (
             <div className="flex sm:flex-col space-x-2 sm:space-x-0 sm:space-y-2 sm:mt-3">
               {review.images.slice(0, 2).map((image, index) => (
-                <div key={index} className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden">
-                  <LazyImage
+                <div key={index} className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden flex-shrink-0">
+                  <OptimizedImage
                     src={image}
                     alt={`Review image ${index + 1}`}
                     className="w-full h-full"
@@ -56,7 +56,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
                 </div>
               ))}
               {review.images.length > 2 && (
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-gray-200 flex items-center justify-center text-xs text-gray-600 font-medium">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-gray-200 flex items-center justify-center text-xs text-gray-600 font-medium flex-shrink-0">
                   +{review.images.length - 2}
                 </div>
               )}
@@ -69,13 +69,13 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
             <div className="flex items-center space-x-2">
               <h4 className="font-semibold text-gray-900 text-sm sm:text-base">{review.name}</h4>
               {review.verified && (
-                <CheckCircle className="h-4 w-4 text-green-500" title="যাচাইকৃত ক্রেতা" />
+                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" title="যাচাইকৃত ক্রেতা" />
               )}
             </div>
             
             {/* Source Badge */}
             {review.source && (
-              <div className="flex items-center space-x-1 bg-gray-100 px-2 py-1 rounded-full">
+              <div className="flex items-center space-x-1 bg-gray-100 px-2 py-1 rounded-full flex-shrink-0">
                 {getSourceIcon(review.source)}
                 <span className="text-xs text-gray-600">{getSourceName(review.source)}</span>
               </div>
@@ -103,11 +103,11 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
             )}
           </div>
           
-          <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{review.comment}</p>
+          <p className="text-gray-700 leading-relaxed text-sm sm:text-base mb-2">{review.comment}</p>
           
           {/* Location */}
           {review.location && (
-            <p className="text-xs text-gray-500 mt-2">📍 {review.location}</p>
+            <p className="text-xs text-gray-500">📍 {review.location}</p>
           )}
         </div>
       </div>

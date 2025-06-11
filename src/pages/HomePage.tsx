@@ -2,13 +2,21 @@ import React, { useState } from 'react';
 import { Hero } from '../components/Hero';
 import { ProductFilter } from '../components/ProductFilter';
 import { ProductCard } from '../components/ProductCard';
+import { ProductDetailsModal } from '../components/ProductDetailsModal';
 import { VideoTestimonials } from '../components/VideoTestimonials';
+import { ProductShowcase } from '../components/ProductShowcase';
 import { products } from '../data/products';
+import { Product } from '../types';
 
-export const HomePage: React.FC = () => {
+interface HomePageProps {
+  onPageChange: (page: string) => void;
+}
+
+export const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedGender, setSelectedGender] = useState('all');
   const [selectedBottleSize, setSelectedBottleSize] = useState('all');
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const categories = ['all', 'wholesale', 'retail', 'package'];
   const genders = ['all', 'men', 'women'];
@@ -21,11 +29,22 @@ export const HomePage: React.FC = () => {
     return categoryMatch && genderMatch && sizeMatch;
   });
 
+  const handleViewDetails = (product: Product) => {
+    setSelectedProduct(product);
+  };
+
+  const closeModal = () => {
+    setSelectedProduct(null);
+  };
+
   return (
     <div>
-      <Hero />
+      <Hero onNavigate={onPageChange} />
       
-      <div className="bg-gray-50 py-12 sm:py-16">
+      {/* Product Showcase Section */}
+      <ProductShowcase />
+      
+      <div id="products-section" className="bg-gray-50 py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -50,7 +69,11 @@ export const HomePage: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
             {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard 
+                key={product.id} 
+                product={product} 
+                onViewDetails={handleViewDetails}
+              />
             ))}
           </div>
 
@@ -64,6 +87,15 @@ export const HomePage: React.FC = () => {
 
       {/* Video Testimonials Section */}
       <VideoTestimonials />
+
+      {/* Product Details Modal */}
+      {selectedProduct && (
+        <ProductDetailsModal
+          product={selectedProduct}
+          isOpen={!!selectedProduct}
+          onClose={closeModal}
+        />
+      )}
     </div>
   );
 };

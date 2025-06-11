@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { MessageCircle, ExternalLink, Star, Package, Users, Gift, Play, ChevronLeft, ChevronRight } from 'lucide-react';
+import { MessageCircle, ExternalLink, Star, Package, Users, Gift, Play, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
 import { Product } from '../types';
-import { LazyImage } from './LazyImage';
+import { OptimizedImage } from './OptimizedImage';
 
 interface ProductCardProps {
   product: Product;
+  onViewDetails: (product: Product) => void;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+export const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
 
@@ -37,30 +38,35 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     }
   };
 
-  const handleWhatsAppOrder = () => {
+  const handleWhatsAppOrder = (e: React.MouseEvent) => {
+    e.stopPropagation();
     const message = `আমি ${product.name} (${product.ml}ml) অর্ডার করতে চাই। দাম: ৳${product.price}`;
     const whatsappUrl = `https://wa.me/8801700000000?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
-  const handleFacebookMessage = () => {
+  const handleFacebookMessage = (e: React.MouseEvent) => {
+    e.stopPropagation();
     const message = `আমি ${product.name} (${product.ml}ml) সম্পর্কে জানতে চাই। দাম: ৳${product.price}`;
     const facebookUrl = `https://m.me/mahimaperfumery?text=${encodeURIComponent(message)}`;
     window.open(facebookUrl, '_blank');
   };
 
-  const handleGoogleFormOrder = () => {
+  const handleGoogleFormOrder = (e: React.MouseEvent) => {
+    e.stopPropagation();
     const formUrl = `https://forms.google.com/your-form-url?product=${encodeURIComponent(product.name)}&price=${product.price}&ml=${product.ml}`;
     window.open(formUrl, '_blank');
   };
 
-  const nextImage = () => {
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
     if (product.images && product.images.length > 1) {
       setCurrentImageIndex((prev) => (prev + 1) % product.images.length);
     }
   };
 
-  const prevImage = () => {
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
     if (product.images && product.images.length > 1) {
       setCurrentImageIndex((prev) => (prev - 1 + product.images.length) % product.images.length);
     }
@@ -71,11 +77,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const hasMultipleImages = product.images && product.images.length > 1;
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+    <div 
+      className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer"
+      onClick={() => onViewDetails(product)}
+    >
       {/* Image/Video Section */}
       <div className="relative h-48 sm:h-56 md:h-64 bg-gradient-to-br from-purple-50 to-pink-50">
         {showVideo && hasVideo ? (
-          // Video Display
           <div className="relative w-full h-full">
             <video
               src={product.video}
@@ -83,24 +91,26 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               className="w-full h-full object-cover"
               onEnded={() => setShowVideo(false)}
               preload="metadata"
+              onClick={(e) => e.stopPropagation()}
             />
             <button
-              onClick={() => setShowVideo(false)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowVideo(false);
+              }}
               className="absolute top-2 right-2 bg-black/50 text-white rounded-full p-2 hover:bg-black/70 transition-colors"
             >
               ✕
             </button>
           </div>
         ) : hasImages ? (
-          // Image Display
           <>
-            <LazyImage
+            <OptimizedImage
               src={product.images[currentImageIndex]}
               alt={product.name}
               className="w-full h-full transition-transform duration-500 hover:scale-105"
             />
             
-            {/* Image Navigation Arrows */}
             {hasMultipleImages && (
               <>
                 <button
@@ -118,10 +128,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               </>
             )}
             
-            {/* Video Play Button */}
             {hasVideo && (
               <button
-                onClick={() => setShowVideo(true)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowVideo(true);
+                }}
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black/70 text-white rounded-full p-3 sm:p-4 hover:bg-black/80 transition-colors"
               >
                 <Play className="h-4 w-4 sm:h-6 sm:w-6" />
@@ -129,17 +141,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             )}
           </>
         ) : hasVideo ? (
-          // Video Only (no images)
           <div className="relative w-full h-full">
             <video
               src={product.video}
               controls
               className="w-full h-full object-cover"
               preload="metadata"
+              onClick={(e) => e.stopPropagation()}
             />
           </div>
         ) : (
-          // Fallback if no media
           <div className="w-full h-full flex items-center justify-center bg-gray-200">
             <Package className="h-12 w-12 sm:h-16 sm:w-16 text-gray-400" />
           </div>
@@ -160,13 +171,28 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </span>
         </div>
 
+        {/* View Details Button */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onViewDetails(product);
+          }}
+          className="absolute bottom-2 left-2 bg-white/90 backdrop-blur-sm text-purple-600 rounded-full px-3 py-1 flex items-center space-x-1 hover:bg-white transition-colors"
+        >
+          <Eye className="h-3 w-3" />
+          <span className="text-xs font-medium">বিস্তারিত</span>
+        </button>
+
         {/* Image Navigation Dots */}
         {hasMultipleImages && !showVideo && (
           <div className="absolute bottom-2 sm:bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1 sm:space-x-2">
             {product.images.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentImageIndex(index)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setCurrentImageIndex(index);
+                }}
                 className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-colors ${
                   index === currentImageIndex ? 'bg-white' : 'bg-white/50'
                 }`}
@@ -174,20 +200,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             ))}
           </div>
         )}
-
-        {/* Media Type Indicator */}
-        <div className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 flex space-x-1">
-          {hasImages && (
-            <div className="bg-black/50 text-white text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded">
-              {product.images.length} ছবি
-            </div>
-          )}
-          {hasVideo && (
-            <div className="bg-black/50 text-white text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded">
-              ভিডিও
-            </div>
-          )}
-        </div>
 
         {/* Discount Badge */}
         {product.originalPrice && (
@@ -208,7 +220,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </div>
         </div>
 
-        <p className="text-gray-600 text-sm mb-3 sm:mb-4 line-clamp-2">{product.description}</p>
+        <p className="text-gray-600 text-sm mb-3 sm:mb-4 line-clamp-2">{product.description.split('\n')[0]}</p>
 
         {/* Features */}
         <div className="mb-3 sm:mb-4">
