@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { Play, Pause, Volume2, VolumeX, Star, CheckCircle, MessageCircle } from 'lucide-react';
 
 interface VideoTestimonial {
@@ -20,7 +20,7 @@ const videoTestimonials: VideoTestimonial[] = [
     productName: 'Aroma Black Edition',
     rating: 5,
     videoUrl: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
-    thumbnailUrl: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg',
+    thumbnailUrl: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
     duration: '0:45',
     verified: true,
     location: 'ঢাকা'
@@ -31,7 +31,7 @@ const videoTestimonials: VideoTestimonial[] = [
     productName: 'Aroma Rose Gold',
     rating: 5,
     videoUrl: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4',
-    thumbnailUrl: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg',
+    thumbnailUrl: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
     duration: '1:12',
     verified: true,
     location: 'চট্টগ্রাম'
@@ -42,7 +42,7 @@ const videoTestimonials: VideoTestimonial[] = [
     productName: 'Aroma Premium',
     rating: 5,
     videoUrl: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
-    thumbnailUrl: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg',
+    thumbnailUrl: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
     duration: '0:38',
     verified: true,
     location: 'সিলেট'
@@ -53,35 +53,115 @@ const videoTestimonials: VideoTestimonial[] = [
     productName: 'Aroma Floral',
     rating: 5,
     videoUrl: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4',
-    thumbnailUrl: 'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg',
+    thumbnailUrl: 'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
     duration: '0:52',
     verified: true,
     location: 'রাজশাহী'
   }
 ];
 
-export const VideoTestimonials: React.FC = () => {
-  const [playingVideo, setPlayingVideo] = useState<string | null>(null);
-  const [mutedVideos, setMutedVideos] = useState<Set<string>>(new Set());
+const VideoTestimonialCard = memo(({ testimonial }: { testimonial: VideoTestimonial }) => {
+  const [playingVideo, setPlayingVideo] = useState(false);
+  const [mutedVideo, setMutedVideo] = useState(true);
 
-  const handlePlayPause = (videoId: string) => {
-    if (playingVideo === videoId) {
-      setPlayingVideo(null);
-    } else {
-      setPlayingVideo(videoId);
-    }
+  const handlePlayPause = () => {
+    setPlayingVideo(!playingVideo);
   };
 
-  const toggleMute = (videoId: string) => {
-    const newMutedVideos = new Set(mutedVideos);
-    if (mutedVideos.has(videoId)) {
-      newMutedVideos.delete(videoId);
-    } else {
-      newMutedVideos.add(videoId);
-    }
-    setMutedVideos(newMutedVideos);
+  const toggleMute = () => {
+    setMutedVideo(!mutedVideo);
   };
 
+  return (
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+      {/* Video Section */}
+      <div className="relative aspect-video bg-gray-900">
+        {playingVideo ? (
+          <video
+            className="w-full h-full object-cover"
+            src={testimonial.videoUrl}
+            autoPlay
+            muted={mutedVideo}
+            onEnded={() => setPlayingVideo(false)}
+            controls={false}
+            preload="none"
+          />
+        ) : (
+          <div
+            className="relative w-full h-full bg-cover bg-center cursor-pointer group"
+            style={{ backgroundImage: `url(${testimonial.thumbnailUrl})` }}
+            onClick={handlePlayPause}
+          >
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
+                <Play className="h-6 w-6 text-purple-600 ml-1" />
+              </div>
+            </div>
+            <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+              {testimonial.duration}
+            </div>
+          </div>
+        )}
+
+        {/* Video Controls */}
+        {playingVideo && (
+          <div className="absolute bottom-2 left-2 flex space-x-2">
+            <button
+              onClick={handlePlayPause}
+              className="w-8 h-8 bg-black/70 text-white rounded-full flex items-center justify-center hover:bg-black/80 transition-colors"
+            >
+              <Pause className="h-4 w-4" />
+            </button>
+            <button
+              onClick={toggleMute}
+              className="w-8 h-8 bg-black/70 text-white rounded-full flex items-center justify-center hover:bg-black/80 transition-colors"
+            >
+              {mutedVideo ? (
+                <VolumeX className="h-4 w-4" />
+              ) : (
+                <Volume2 className="h-4 w-4" />
+              )}
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="p-4">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="font-semibold text-gray-900 text-sm">
+            {testimonial.customerName}
+          </h3>
+          {testimonial.verified && (
+            <CheckCircle className="h-4 w-4 text-green-500" />
+          )}
+        </div>
+
+        <p className="text-xs text-gray-600 mb-2">
+          {testimonial.productName} • {testimonial.location}
+        </p>
+
+        <div className="flex items-center space-x-1">
+          {[...Array(5)].map((_, i) => (
+            <Star
+              key={i}
+              className={`h-3 w-3 ${
+                i < testimonial.rating
+                  ? 'text-yellow-500 fill-current'
+                  : 'text-gray-300'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+});
+
+VideoTestimonialCard.displayName = 'VideoTestimonialCard';
+
+export const VideoTestimonials: React.FC = memo(() => {
   return (
     <div className="py-16 bg-gradient-to-br from-purple-50 to-pink-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,91 +178,7 @@ export const VideoTestimonials: React.FC = () => {
         {/* Video Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
           {videoTestimonials.map((testimonial) => (
-            <div
-              key={testimonial.id}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
-            >
-              {/* Video Section */}
-              <div className="relative aspect-video bg-gray-900">
-                {playingVideo === testimonial.id ? (
-                  <video
-                    className="w-full h-full object-cover"
-                    src={testimonial.videoUrl}
-                    autoPlay
-                    muted={mutedVideos.has(testimonial.id)}
-                    onEnded={() => setPlayingVideo(null)}
-                    controls={false}
-                  />
-                ) : (
-                  <div
-                    className="relative w-full h-full bg-cover bg-center cursor-pointer group"
-                    style={{ backgroundImage: `url(${testimonial.thumbnailUrl})` }}
-                    onClick={() => handlePlayPause(testimonial.id)}
-                  >
-                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
-                        <Play className="h-6 w-6 text-purple-600 ml-1" />
-                      </div>
-                    </div>
-                    <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
-                      {testimonial.duration}
-                    </div>
-                  </div>
-                )}
-
-                {/* Video Controls */}
-                {playingVideo === testimonial.id && (
-                  <div className="absolute bottom-2 left-2 flex space-x-2">
-                    <button
-                      onClick={() => handlePlayPause(testimonial.id)}
-                      className="w-8 h-8 bg-black/70 text-white rounded-full flex items-center justify-center hover:bg-black/80 transition-colors"
-                    >
-                      <Pause className="h-4 w-4" />
-                    </button>
-                    <button
-                      onClick={() => toggleMute(testimonial.id)}
-                      className="w-8 h-8 bg-black/70 text-white rounded-full flex items-center justify-center hover:bg-black/80 transition-colors"
-                    >
-                      {mutedVideos.has(testimonial.id) ? (
-                        <VolumeX className="h-4 w-4" />
-                      ) : (
-                        <Volume2 className="h-4 w-4" />
-                      )}
-                    </button>
-                  </div>
-                )}
-              </div>
-
-              {/* Content */}
-              <div className="p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-semibold text-gray-900 text-sm">
-                    {testimonial.customerName}
-                  </h3>
-                  {testimonial.verified && (
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                  )}
-                </div>
-
-                <p className="text-xs text-gray-600 mb-2">
-                  {testimonial.productName} • {testimonial.location}
-                </p>
-
-                <div className="flex items-center space-x-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`h-3 w-3 ${
-                        i < testimonial.rating
-                          ? 'text-yellow-500 fill-current'
-                          : 'text-gray-300'
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
+            <VideoTestimonialCard key={testimonial.id} testimonial={testimonial} />
           ))}
         </div>
 
@@ -218,4 +214,6 @@ export const VideoTestimonials: React.FC = () => {
       </div>
     </div>
   );
-};
+});
+
+VideoTestimonials.displayName = 'VideoTestimonials';

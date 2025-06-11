@@ -1,8 +1,23 @@
 import React from 'react';
 import { Sparkles, Award, Users, Clock } from 'lucide-react';
-import { LazyImage } from './LazyImage';
+import { OptimizedImage } from './OptimizedImage';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  onNavigate: (page: string) => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
+  const handleViewCollection = () => {
+    const productsSection = document.getElementById('products-section');
+    if (productsSection) {
+      productsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleContact = () => {
+    onNavigate('contact');
+  };
+
   return (
     <div className="relative bg-gradient-to-br from-purple-900 via-purple-800 to-pink-800 text-white overflow-hidden">
       {/* Background Pattern */}
@@ -25,6 +40,7 @@ export const Hero: React.FC = () => {
                   src="/logo.png" 
                   alt="Mahima Perfumery Co." 
                   className="h-[6rem] w-[auto] filter brightness-0 invert"
+                  loading="eager"
                 />
               </div>
               
@@ -36,8 +52,6 @@ export const Hero: React.FC = () => {
                 <div className='mt-4'>
                   পারফিউম কালেকশন
                 </div>
-      
-              
               </h1>
               
               <p className="text-base sm:text-lg lg:text-xl text-purple-100 leading-relaxed max-w-lg mx-auto lg:mx-0">
@@ -75,10 +89,16 @@ export const Hero: React.FC = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:from-yellow-500 hover:to-orange-600 transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base">
+              <button 
+                onClick={handleViewCollection}
+                className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:from-yellow-500 hover:to-orange-600 transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base"
+              >
                 কালেকশন দেখুন
               </button>
-              <button className="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-white hover:text-purple-900 transition-all text-sm sm:text-base">
+              <button 
+                onClick={handleContact}
+                className="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-white hover:text-purple-900 transition-all text-sm sm:text-base"
+              >
                 যোগাযোগ করুন
               </button>
             </div>
@@ -90,10 +110,11 @@ export const Hero: React.FC = () => {
               {/* Main Product Image */}
               <div className="relative bg-white/10 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
                 <div className="w-full h-64 sm:h-80 rounded-2xl overflow-hidden shadow-2xl">
-                  <LazyImage
+                  <OptimizedImage
                     src="https://images.pexels.com/photos/965990/pexels-photo-965990.jpeg"
                     alt="Aroma Perfume"
                     className="w-full h-full"
+                    priority
                   />
                 </div>
                 <div className="absolute -top-4 -right-4 bg-red-500 text-white rounded-full px-3 sm:px-4 py-2 font-bold transform rotate-12 text-sm sm:text-base">

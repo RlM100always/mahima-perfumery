@@ -6,13 +6,13 @@ export const products: Product[] = [
   name: 'Aroma Sauvage Premium',
   category: 'package',
   gender: 'men',
-  price: 65,
+  price: 6500,
   originalPrice: 8000,
   ml: 100,
   color: 'Blue',
   images: [
-    'https://images.pexels.com/photos/965990/pexels-photo-965990.jpeg',
-    'https://images.pexels.com/photos/1961792/pexels-photo-1961792.jpeg'
+    'https://images.pexels.com/photos/965990/pexels-photo-965990.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
+    'https://images.pexels.com/photos/1961792/pexels-photo-1961792.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
   ],
   video: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
   description: `ফ্রেশ, স্পাইসি ও মাসকুলিন ঘ্রাণ। পুরুষদের জন্য আদর্শ একটি প্রিমিয়াম পারফিউম।
@@ -20,7 +20,7 @@ export const products: Product[] = [
 পারফিউমের গুরুত্ব (Perfume er Gurutto):
 ১. ব্যক্তিত্বের প্রকাশ: একটি ভালো ঘ্রাণ ব্যক্তির ব্যক্তিত্বকে আরও আকর্ষণীয় করে তোলে। এটি আত্মবিশ্বাস বাড়াতে সাহায্য করে এবং মানুষকে সহজে প্রভাবিত করতে পারে।
 ২. স্মৃতি তৈরি করে: সুগন্ধি অনেক সময় কোনো বিশেষ মুহূর্ত বা মানুষের সঙ্গে স্মৃতির যোগসূত্র গড়ে তোলে। মানুষ ঘ্রাণের মাধ্যমে পুরনো স্মৃতিতে ফিরে যেতে পারে।
-৩. মনের প্রশান্তি দেয়: অনেক পারফিউমে এমন উপাদান থাকে যা মানসিক চাপ কমাতে সাহায্য করে এবং মনকে প্রশান্ত করে তোলে।
+৩. মনের প্রশান্তি দেয়: অনেক পারফিউমে এমন উপাদান থাকে যা মানসিক চাপ কমাতে সাহায্য করে এবং মনকে প্রশান্ত করে তোলে।
 ৪. খারাপ গন্ধ দূর করে: ঘাম বা শরীরের অন্যান্য প্রাকৃতিক গন্ধ ঢেকে রাখতে পারফিউম কার্যকর ভূমিকা পালন করে।
 ৫. আকর্ষণ সৃষ্টি করে: একটি মনোমুগ্ধকর ঘ্রাণ অন্যদের কাছে আপনাকে আকর্ষণীয় করে তুলতে পারে। এটি সামাজিক সম্পর্ক তৈরিতেও সহায়ক।`,
   features: ['১০-১২ ঘন্টা স্থায়ী', 'ফ্রেশ ও স্পাইসি', 'প্রিমিয়াম কোয়ালিটি']
@@ -35,9 +35,9 @@ export const products: Product[] = [
     ml: 80,
     color: 'Black',
     images: [
-      'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg',
-      'https://images.pexels.com/photos/1961793/pexels-photo-1961793.jpeg',
-      'https://images.pexels.com/photos/1190830/pexels-photo-1190830.jpeg'
+      'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
+      'https://images.pexels.com/photos/1961793/pexels-photo-1961793.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
+      'https://images.pexels.com/photos/1190830/pexels-photo-1190830.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
     ],
     description: 'মিষ্টি ও স্পাইসি ঘ্রাণ, অনেক জনপ্রিয়। মহিলাদের জন্য একটি আকর্ষণীয় পারফিউম।',
     features: ['৮-১০ ঘন্টা স্থায়ী', 'মিষ্টি ও স্পাইসি', 'জনপ্রিয় ব্র্যান্ড']
@@ -52,7 +52,7 @@ export const products: Product[] = [
     ml: 100,
     color: 'Blue',
     images: [
-      'https://images.pexels.com/photos/1961794/pexels-photo-1961794.jpeg'
+      'https://images.pexels.com/photos/1961794/pexels-photo-1961794.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
     ],
     video: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4',
     description: 'উডি-অ্যারোমাটিক টাইপ, অফিস এবং ডেটের জন্য পারফেক্ট।',
@@ -68,10 +68,10 @@ export const products: Product[] = [
     ml: 90,
     color: 'Gold',
     images: [
-      'https://images.pexels.com/photos/1190830/pexels-photo-1190830.jpeg',
-      'https://images.pexels.com/photos/1961795/pexels-photo-1961795.jpeg',
-      'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg',
-      'https://images.pexels.com/photos/1961793/pexels-photo-1961793.jpeg'
+      'https://images.pexels.com/photos/1190830/pexels-photo-1190830.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
+      'https://images.pexels.com/photos/1961795/pexels-photo-1961795.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
+      'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
+      'https://images.pexels.com/photos/1961793/pexels-photo-1961793.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
     ],
     description: 'ল্যাভেন্ডার ও ভ্যানিলা নোটের কম্বিনেশন। একটি মার্জিত ও আকর্ষণীয় সুগন্ধ।',
     features: ['৯-১১ ঘন্টা স্থায়ী', 'ল্যাভেন্ডার ও ভ্যানিলা', 'প্রিমিয়াম ব্র্যান্ড']
@@ -86,7 +86,7 @@ export const products: Product[] = [
     ml: 60,
     color: 'Silver',
     images: [
-      'https://images.pexels.com/photos/965992/pexels-photo-965992.jpeg'
+      'https://images.pexels.com/photos/965992/pexels-photo-965992.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
     ],
     description: 'মডার্ন ফ্রেশ ঘ্রাণ, লং লাস্টিং। তরুণদের জন্য একটি আদর্শ পছন্দ।',
     features: ['৮-১০ ঘন্টা স্থায়ী', 'মডার্ন ফ্রেশ', 'তরুণদের পছন্দ']
@@ -101,8 +101,8 @@ export const products: Product[] = [
     ml: 100,
     color: 'Blue',
     images: [
-      'https://images.pexels.com/photos/1961797/pexels-photo-1961797.jpeg',
-      'https://images.pexels.com/photos/965993/pexels-photo-965993.jpeg'
+      'https://images.pexels.com/photos/1961797/pexels-photo-1961797.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
+      'https://images.pexels.com/photos/965993/pexels-photo-965993.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
     ],
     video: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_5mb.mp4',
     description: 'আকর্ষণীয় ফ্রেশ ও মেরিন ঘ্রাণ। সমুদ্রের তাজা বাতাসের মতো সুগন্ধ।',
@@ -131,9 +131,9 @@ export const products: Product[] = [
     ml: 75,
     color: 'Blue',
     images: [
-      'https://images.pexels.com/photos/1961799/pexels-photo-1961799.jpeg',
-      'https://images.pexels.com/photos/1190832/pexels-photo-1190832.jpeg',
-      'https://images.pexels.com/photos/965990/pexels-photo-965990.jpeg'
+      'https://images.pexels.com/photos/1961799/pexels-photo-1961799.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
+      'https://images.pexels.com/photos/1190832/pexels-photo-1190832.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
+      'https://images.pexels.com/photos/965990/pexels-photo-965990.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
     ],
     description: 'ডিপ অ্যাকুয়াটিক ও উডি ঘ্রাণ। একটি গভীর ও আকর্ষণীয় সুগন্ধ।',
     features: ['১১-১৩ ঘন্টা স্থায়ী', 'ডিপ অ্যাকুয়াটিক', 'উডি ঘ্রাণ']
