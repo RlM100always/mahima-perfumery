@@ -4,7 +4,6 @@ import { ProductFilter } from '../components/ProductFilter';
 import { ProductCard } from '../components/ProductCard';
 import { ProductDetailsModal } from '../components/ProductDetailsModal';
 import { VideoTestimonials } from '../components/VideoTestimonials';
-import { ProductShowcase } from '../components/ProductShowcase';
 import { products } from '../data/products';
 import { Product } from '../types';
 
@@ -20,7 +19,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
 
   const categories = ['all', 'wholesale', 'retail', 'package'];
   const genders = ['all', 'men', 'women'];
-  const bottleSizes = [15, 30, 50];
+  const bottleSizes = [60, 75, 80, 90, 100];
 
   const filteredProducts = products.filter(product => {
     const categoryMatch = selectedCategory === 'all' || product.category === selectedCategory;
@@ -40,9 +39,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
   return (
     <div>
       <Hero onNavigate={onPageChange} />
-      
-      {/* Product Showcase Section */}
-      <ProductShowcase />
       
       <div id="products-section" className="bg-gray-50 py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
