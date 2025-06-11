@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { MessageCircle, ExternalLink, Star, Package, Users, Gift, Play, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
 import { Product } from '../types';
 import { OptimizedImage } from './OptimizedImage';
@@ -8,7 +8,7 @@ interface ProductCardProps {
   onViewDetails: (product: Product) => void;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails }) => {
+export const ProductCard: React.FC<ProductCardProps> = memo(({ product, onViewDetails }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
 
@@ -78,7 +78,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails
 
   return (
     <div 
-      className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer"
+      className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer will-change-transform"
       onClick={() => onViewDetails(product)}
     >
       {/* Image/Video Section */}
@@ -90,7 +90,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails
               controls
               className="w-full h-full object-cover"
               onEnded={() => setShowVideo(false)}
-              preload="metadata"
+              preload="none"
               onClick={(e) => e.stopPropagation()}
             />
             <button
@@ -109,6 +109,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails
               src={product.images[currentImageIndex]}
               alt={product.name}
               className="w-full h-full transition-transform duration-500 hover:scale-105"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             />
             
             {hasMultipleImages && (
@@ -146,7 +147,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails
               src={product.video}
               controls
               className="w-full h-full object-cover"
-              preload="metadata"
+              preload="none"
               onClick={(e) => e.stopPropagation()}
             />
           </div>
@@ -282,4 +283,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails
       </div>
     </div>
   );
-};
+});
+
+ProductCard.displayName = 'ProductCard';

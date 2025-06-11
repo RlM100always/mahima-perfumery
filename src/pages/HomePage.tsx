@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Hero } from '../components/Hero';
 import { ProductFilter } from '../components/ProductFilter';
 import { ProductCard } from '../components/ProductCard';
@@ -21,12 +21,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
   const genders = ['all', 'men', 'women'];
   const bottleSizes = [60, 75, 80, 90, 100];
 
-  const filteredProducts = products.filter(product => {
-    const categoryMatch = selectedCategory === 'all' || product.category === selectedCategory;
-    const genderMatch = selectedGender === 'all' || product.gender === selectedGender;
-    const sizeMatch = selectedBottleSize === 'all' || product.ml.toString() === selectedBottleSize;
-    return categoryMatch && genderMatch && sizeMatch;
-  });
+  // Memoize filtered products to prevent unnecessary re-renders
+  const filteredProducts = useMemo(() => {
+    return products.filter(product => {
+      const categoryMatch = selectedCategory === 'all' || product.category === selectedCategory;
+      const genderMatch = selectedGender === 'all' || product.gender === selectedGender;
+      const sizeMatch = selectedBottleSize === 'all' || product.ml.toString() === selectedBottleSize;
+      return categoryMatch && genderMatch && sizeMatch;
+    });
+  }, [selectedCategory, selectedGender, selectedBottleSize]);
 
   const handleViewDetails = (product: Product) => {
     setSelectedProduct(product);
