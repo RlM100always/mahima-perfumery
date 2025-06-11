@@ -68,7 +68,7 @@ export const Hero: React.FC = () => {
                 <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-full mb-2 mx-auto">
                   <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-400" />
                 </div>
-                <div className="text-lg sm:text-2xl font-bold">১২ ঘন্টা</div>
+                <div className="text-lg sm:text-2xl font-bold">24 ঘন্টা</div>
                 <div className="text-xs sm:text-sm text-purple-200">পর্যন্ত স্থায়ী</div>
               </div>
             </div>
