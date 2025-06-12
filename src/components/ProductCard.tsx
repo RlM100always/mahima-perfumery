@@ -54,7 +54,7 @@ export const ProductCard: React.FC<ProductCardProps> = memo(({ product, onViewDe
 
   const handleGoogleFormOrder = (e: React.MouseEvent) => {
     e.stopPropagation();
-    const formUrl = `https://forms.google.com/your-form-url?product=${encodeURIComponent(product.name)}&price=${product.price}&ml=${product.ml}`;
+    const formUrl = `https://forms.gle/PaNYbVrDqpvzqfsj9`;
     window.open(formUrl, '_blank');
   };
 

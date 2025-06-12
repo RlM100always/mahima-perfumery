@@ -19,7 +19,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
 
   const categories = ['all', 'wholesale', 'retail', 'package'];
   const genders = ['all', 'men', 'women'];
-  const bottleSizes = [60, 75, 80, 90, 100];
+  const bottleSizes = [15, 30, 60];
 
   // Memoize filtered products to prevent unnecessary re-renders
   const filteredProducts = useMemo(() => {
