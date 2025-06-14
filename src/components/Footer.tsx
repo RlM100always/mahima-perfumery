@@ -31,7 +31,7 @@ export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
             </p>
             <div className="flex space-x-3">
               <a 
-                href="https://web.facebook.com/profile.php?id=61577424651208#" 
+                href="https://www.facebook.com/profile.php?id=61577424651208" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-300 transition-colors p-2 hover:bg-blue-400/10 rounded-full"
