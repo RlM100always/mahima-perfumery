@@ -21,7 +21,7 @@ export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
               <img 
                 src="/logo.png" 
                 alt="Mahima Perfumery Co." 
-                className="h-12 sm:h-16 w-auto mr-3 filter brightness-0 invert"
+                className="h-12 sm:h-20 w-auto mr-3 filter brightness-0 invert"
                 loading="lazy"
               />
             </div>
@@ -103,11 +103,11 @@ export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-purple-400 flex-shrink-0" />
-                <span className="text-gray-300 text-sm sm:text-base">+880 1700 000 000</span>
+                <span className="text-gray-300 text-sm sm:text-base">+8801825008451</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-purple-400 flex-shrink-0" />
-                <span className="text-gray-300 text-sm sm:text-base break-all">info@mahimaperfumery.com</span>
+                <span className="text-gray-300 text-sm sm:text-base break-all">mahimaperfumery@gmail.com</span>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 text-purple-400 mt-1 flex-shrink-0" />
@@ -115,7 +115,7 @@ export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
               </div>
               <div className="flex items-center space-x-3">
                 <Clock className="h-4 w-4 text-purple-400 flex-shrink-0" />
-                <span className="text-gray-300 text-sm sm:text-base">সকাল ৯টা - রাত ৯টা</span>
+                <span className="text-gray-300 text-sm sm:text-base">সকাল ৯টা - রাত ১২টা</span>
               </div>
             </div>
           </div>
@@ -123,7 +123,8 @@ export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-xs sm:text-sm">
-            © 2024 Mahima Perfumery Co. সর্বস্বত্ব সংরক্ষিত। | ডিজাইন ও ডেভেলপমেন্ট
+            © Mahima Perfumery Co. সর্বস্বত্ব সংরক্ষিত | ডিজাইন ও ডেভেলপমেন্ট | মেনেজমেন্ট
+
           </p>
         </div>
       </div>

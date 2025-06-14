@@ -194,7 +194,7 @@ export const VideoTestimonials: React.FC = memo(() => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://wa.me/8801700000000?text=আমি ভিডিও রিভিউ দিতে চাই"
+                href="https://wa.me/8801825008451"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center space-x-2"
@@ -203,7 +203,7 @@ export const VideoTestimonials: React.FC = memo(() => {
                 <span>WhatsApp এ পাঠান</span>
               </a>
               <a
-                href="mailto:info@mahimaperfumery.com?subject=ভিডিও রিভিউ"
+                href="mailto:mahimaperfumery@gmail.com"
                 className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors"
               >
                 ইমেইল করুন
