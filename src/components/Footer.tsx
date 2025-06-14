@@ -40,11 +40,11 @@ export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
                 <Facebook className="h-5 w-5" />
               </a>
               <a 
-                href="https://wa.me/8801700000000" 
+                href="https://whatsapp.com/channel/0029Vb60dOO6WaKeM85xKa44/106" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-green-400 hover:text-green-300 transition-colors p-2 hover:bg-green-400/10 rounded-full"
-                aria-label="WhatsApp"
+                aria-label="WhatsApp Channel"
               >
                 <MessageCircle className="h-5 w-5" />
               </a>

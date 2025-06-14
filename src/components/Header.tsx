@@ -51,7 +51,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => 
             {/* Contact Icons */}
             <div className="hidden md:flex items-center space-x-2">
               <a
-                href="https://wa.me/8801700000000"
+                href="https://wa.me/8801825008451"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 text-green-600 hover:bg-green-50 rounded-full transition-colors"
@@ -60,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => 
                 <MessageCircle className="h-5 w-5" />
               </a>
               <a
-                href="tel:+8801700000000"
+                href="tel:+8801825008451"
                 className="p-2 text-blue-600 hover:bg-blue-50 rounded-full transition-colors"
                 title="Call Us"
               >
