@@ -104,7 +104,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => 
               ))}
               <div className="flex space-x-4 px-3 pt-4 border-t">
                 <a
-                  href="https://wa.me/8801700000000"
+                  href="https://wa.me/8801825008451"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center space-x-2 text-green-600"
@@ -113,7 +113,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => 
                   <span>WhatsApp</span>
                 </a>
                 <a
-                  href="tel:+8801700000000"
+                  href="tel:+8801825008451"
                   className="flex items-center space-x-2 text-blue-600"
                 >
                   <Phone className="h-5 w-5" />

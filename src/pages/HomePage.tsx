@@ -50,7 +50,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
               আমাদের <span className="text-purple-600">প্রিমিয়াম</span> কালেকশন
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-              প্রতিটি পারফিউম সযত্নে তৈরি করা হয়েছে দীর্ঘস্থায়ী সুগন্ধ ও আকর্ষণীয় ব্যক্তিত্ব তৈরির জন্য
+              প্রতিটি পারফিউম তৈরি হয়েছে এমনভাবে, যাতে এটি আপনাকে দীর্ঘ সময় সুগন্ধিত ও ব্যক্তিত্বসম্পন্ন রাখে।
             </p>
           </div>
 

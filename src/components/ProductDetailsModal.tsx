@@ -21,18 +21,18 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
 
   const handleWhatsAppOrder = () => {
     const message = `আমি ${product.name} (${product.ml}ml) অর্ডার করতে চাই। দাম: ৳${product.price}`;
-    const whatsappUrl = `https://wa.me/8801700000000?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/8801825008451?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
   const handleFacebookMessage = () => {
     const message = `আমি ${product.name} (${product.ml}ml) সম্পর্কে জানতে চাই। দাম: ৳${product.price}`;
-    const facebookUrl = `https://m.me/mahimaperfumery?text=${encodeURIComponent(message)}`;
+    const facebookUrl = `https://m.me/Mahima Perfumery Co.?text=${encodeURIComponent(message)}`;
     window.open(facebookUrl, '_blank');
   };
 
   const handleGoogleFormOrder = () => {
-    const formUrl = `https://forms.google.com/your-form-url?product=${encodeURIComponent(product.name)}&price=${product.price}&ml=${product.ml}`;
+    const formUrl = `https://forms.gle/1YV8TaLKrDvVLgW76`;
     window.open(formUrl, '_blank');
   };
 
