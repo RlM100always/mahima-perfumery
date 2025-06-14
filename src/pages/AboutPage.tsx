@@ -16,7 +16,7 @@ export const AboutPage: React.FC = () => {
     {
       icon: <Clock className="h-8 w-8 text-purple-600" />,
       title: 'দীর্ঘস্থায়ী সুগন্ধ',
-      description: 'আমাদের পারফিউম ৮-১২ ঘন্টা পর্যন্ত টিকে থাকে, যা আপনাকে সারাদিন আত্মবিশ্বাসী রাখবে।'
+      description: 'আমাদের পারফিউম ১০-২০ ঘন্টা পর্যন্ত টিকে থাকে, যা আপনাকে সারাদিন আত্মবিশ্বাসী রাখবে।'
     },
     {
       icon: <Heart className="h-8 w-8 text-purple-600" />,
@@ -55,7 +55,7 @@ export const AboutPage: React.FC = () => {
             <h2 className="text-3xl font-bold text-gray-900">আমাদের গল্প</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                ২০২০ সালে আমাদের যাত্রা শুরু হয়েছিল একটি সাধারণ লক্ষ্য নিয়ে - 
+                ২০২২ সালে আমাদের যাত্রা শুরু হয়েছিল একটি সাধারণ লক্ষ্য নিয়ে - 
                 প্রতিটি মানুষের কাছে গুণগত পারফিউম সাশ্রয়ী মূল্যে পৌঁছে দেওয়া।
               </p>
               <p>
@@ -78,7 +78,7 @@ export const AboutPage: React.FC = () => {
             />
             <div className="absolute -bottom-6 -right-6 bg-purple-600 text-white p-6 rounded-xl shadow-lg">
               <div className="text-center">
-                <div className="text-2xl font-bold">৪+ বছর</div>
+                <div className="text-2xl font-bold">৩+ বছর</div>
                 <div className="text-sm">অভিজ্ঞতা</div>
               </div>
             </div>
@@ -98,7 +98,7 @@ export const AboutPage: React.FC = () => {
           <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">আমাদের দৃষ্টিভঙ্গি</h3>
             <p className="text-gray-700 leading-relaxed">
-              বাংলাদেশের প্রতিটি জেলায় Mahima Perfumery এর নাম পৌঁছে দেওয়া এবং 
+              বাংলাদেশের প্রতিটি জেলায় Mahima Perfumery Co. এর নাম পৌঁছে দেওয়া এবং 
               আন্তর্জাতিক মানের পারফিউম স্থানীয় ভাবে উৎপাদন করে দেশের অর্থনীতিতে অবদান রাখা।
             </p>
           </div>
@@ -107,7 +107,7 @@ export const AboutPage: React.FC = () => {
         {/* Features Grid */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            কেন <span className="text-purple-600">আমাদের</span> বেছে নেবেন?
+            কেন <span className="text-purple-600">আমাদের</span> বেছে নেবেন ?
           </h2>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">

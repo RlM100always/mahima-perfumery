@@ -51,8 +51,8 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">ফোন</h3>
-                    <p className="text-gray-600">+880 1700 000 000</p>
-                    <p className="text-sm text-gray-500">সকাল ৯টা - রাত ৯টা</p>
+                    <p className="text-gray-600">+8801825008451</p>
+                    <p className="text-sm text-gray-500">সকাল ৯টা - রাত ১২ টা</p>
                   </div>
                 </div>
 
@@ -62,9 +62,9 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">WhatsApp</h3>
-                    <p className="text-gray-600">+880 1700 000 000</p>
+                    <p className="text-gray-600">+8801825008451</p>
                     <a 
-                      href="https://wa.me/8801700000000" 
+                      href="https://wa.me/8801825008451" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-green-600 hover:text-green-700 text-sm"
@@ -80,7 +80,7 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">ইমেইল</h3>
-                    <p className="text-gray-600">info@mahimaperfumery.com</p>
+                    <p className="text-gray-600">mahimaperfumery@gmail.com</p>
                     <p className="text-sm text-gray-500">২৪ ঘন্টার মধ্যে জবাব</p>
                   </div>
                 </div>
@@ -102,7 +102,7 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">ব্যবসার সময়</h3>
-                    <p className="text-gray-600">সকাল ৯:০০ - রাত ৯:০০</p>
+                    <p className="text-gray-600">সকাল ৯:০০ - রাত ১২:০০</p>
                     <p className="text-sm text-gray-500">সাত দিন খোলা</p>
                   </div>
                 </div>
@@ -114,7 +114,7 @@ export const ContactPage: React.FC = () => {
               <h3 className="text-lg font-semibold text-gray-900 mb-4">সোশ্যাল মিডিয়া</h3>
               <div className="flex space-x-4">
                 <a
-                  href="https://facebook.com/mahimaperfumery"
+                  href="https://facebook.com/MahimaPerfumeryCo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors"
@@ -122,7 +122,7 @@ export const ContactPage: React.FC = () => {
                   <Facebook className="h-6 w-6" />
                 </a>
                 <a
-                  href="https://wa.me/8801700000000"
+                  href="https://wa.me/8801825008451"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-green-600 text-white rounded-lg flex items-center justify-center hover:bg-green-700 transition-colors"
@@ -167,7 +167,7 @@ export const ContactPage: React.FC = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                    placeholder="০১৭০০০০০০০০"
+                    placeholder="01825008451"
                   />
                 </div>
               </div>

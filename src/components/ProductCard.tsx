@@ -41,20 +41,20 @@ export const ProductCard: React.FC<ProductCardProps> = memo(({ product, onViewDe
   const handleWhatsAppOrder = (e: React.MouseEvent) => {
     e.stopPropagation();
     const message = `আমি ${product.name} (${product.ml}ml) অর্ডার করতে চাই। দাম: ৳${product.price}`;
-    const whatsappUrl = `https://wa.me/8801700000000?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/8801825008451?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
   const handleFacebookMessage = (e: React.MouseEvent) => {
     e.stopPropagation();
     const message = `আমি ${product.name} (${product.ml}ml) সম্পর্কে জানতে চাই। দাম: ৳${product.price}`;
-    const facebookUrl = `https://m.me/mahimaperfumery?text=${encodeURIComponent(message)}`;
+    const facebookUrl = `https://m.me/MahimaPerfumeryCo?text=${encodeURIComponent(message)}`;
     window.open(facebookUrl, '_blank');
   };
 
   const handleGoogleFormOrder = (e: React.MouseEvent) => {
     e.stopPropagation();
-    const formUrl = `https://forms.gle/PaNYbVrDqpvzqfsj9`;
+    const formUrl = `https://forms.gle/vHAQSJWNFQd52crq8`;
     window.open(formUrl, '_blank');
   };
 

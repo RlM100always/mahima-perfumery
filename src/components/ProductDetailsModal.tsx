@@ -27,7 +27,7 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
 
   const handleFacebookMessage = () => {
     const message = `আমি ${product.name} (${product.ml}ml) সম্পর্কে জানতে চাই। দাম: ৳${product.price}`;
-    const facebookUrl = `https://m.me/Mahima Perfumery Co.?text=${encodeURIComponent(message)}`;
+    const facebookUrl = `https://m.me/MahimaPerfumeryCo?text=${encodeURIComponent(message)}`;
     window.open(facebookUrl, '_blank');
   };
 
