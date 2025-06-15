@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 
 interface HeaderProps {
@@ -8,6 +8,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   const navigation = [
     { name: 'হোম', key: 'home', scrollTo: 'top' },
@@ -17,15 +18,64 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => 
     { name: 'যোগাযোগ', key: 'contact', scrollTo: 'contact-section' },
   ];
 
+  // Track scroll position to highlight active section
+  useEffect(() => {
+    if (currentPage !== 'home') return;
+
+    const handleScroll = () => {
+      const sections = [
+        { id: 'top', key: 'home', offset: 0 },
+        { id: 'products-section', key: 'products' },
+        { id: 'about-section', key: 'about' },
+        { id: 'reviews-section', key: 'reviews' },
+        { id: 'contact-section', key: 'contact' },
+      ];
+
+      const scrollPosition = window.scrollY + 100; // Add offset for header
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section.id === 'top') {
+          if (scrollPosition < 200) {
+            setActiveSection(section.key);
+            break;
+          }
+        } else {
+          const element = document.getElementById(section.id);
+          if (element && scrollPosition >= element.offsetTop - 100) {
+            setActiveSection(section.key);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [currentPage]);
+
+  // Reset active section when changing pages
+  useEffect(() => {
+    if (currentPage === 'home') {
+      setActiveSection('home');
+    } else {
+      setActiveSection(currentPage);
+    }
+  }, [currentPage]);
+
   const handleNavigation = (item: typeof navigation[0]) => {
     if (currentPage !== 'home') {
       onPageChange('home');
       // Wait for page to load then scroll
       setTimeout(() => {
         scrollToSection(item.scrollTo);
+        setActiveSection(item.key);
       }, 100);
     } else {
       scrollToSection(item.scrollTo);
+      setActiveSection(item.key);
     }
     setIsMenuOpen(false);
   };
@@ -39,6 +89,13 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => 
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }
+  };
+
+  const isActive = (item: typeof navigation[0]) => {
+    if (currentPage === 'home') {
+      return activeSection === item.key;
+    }
+    return currentPage === item.key;
   };
 
   return (
@@ -60,7 +117,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => 
                 key={item.key}
                 onClick={() => handleNavigation(item)}
                 className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                  currentPage === 'home' && item.key === 'home'
+                  isActive(item)
                     ? 'text-purple-600 border-b-2 border-purple-600'
                     : 'text-gray-700 hover:text-purple-600'
                 }`}
@@ -115,8 +172,8 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => 
                   key={item.key}
                   onClick={() => handleNavigation(item)}
                   className={`text-left px-3 py-2 text-sm font-medium transition-colors ${
-                    currentPage === 'home' && item.key === 'home'
-                      ? 'text-purple-600'
+                    isActive(item)
+                      ? 'text-purple-600 bg-purple-50'
                       : 'text-gray-700 hover:text-purple-600'
                   }`}
                 >
