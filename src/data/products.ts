@@ -14,7 +14,8 @@ export const products: Product[] = [
     'https://images.pexels.com/photos/965990/pexels-photo-965990.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
     'https://images.pexels.com/photos/1961792/pexels-photo-1961792.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
   ],
-  video: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
+  video: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+  videoType: 'youtube',
   description: `ফ্রেশ, স্পাইসি ও মাসকুলিন ঘ্রাণ। পুরুষদের জন্য আদর্শ একটি প্রিমিয়াম পারফিউম।
 
 পারফিউমের গুরুত্ব (Perfume er Gurutto):
@@ -39,6 +40,8 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/1961793/pexels-photo-1961793.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
       'https://images.pexels.com/photos/1190830/pexels-photo-1190830.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
     ],
+    video: 'https://www.facebook.com/watch/?v=123456789',
+    videoType: 'facebook',
     description: 'মিষ্টি ও স্পাইসি ঘ্রাণ, অনেক জনপ্রিয়। মহিলাদের জন্য একটি আকর্ষণীয় পারফিউম।',
     features: ['৮-১০ ঘন্টা স্থায়ী', 'মিষ্টি ও স্পাইসি', 'জনপ্রিয় ব্র্যান্ড']
   },
@@ -54,7 +57,8 @@ export const products: Product[] = [
     images: [
       'https://images.pexels.com/photos/1961794/pexels-photo-1961794.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
     ],
-    video: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4',
+    video: 'https://youtu.be/dQw4w9WgXcQ',
+    videoType: 'youtube',
     description: 'উডি-অ্যারোমাটিক টাইপ, অফিস এবং ডেটের জন্য পারফেক্ট।',
     features: ['১২+ ঘন্টা স্থায়ী', 'উডি-অ্যারোমাটিক', 'অফিসের জন্য আদর্শ']
   },
@@ -73,6 +77,8 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
       'https://images.pexels.com/photos/1961793/pexels-photo-1961793.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
     ],
+    video: 'https://www.facebook.com/reel/987654321',
+    videoType: 'facebook',
     description: 'ল্যাভেন্ডার ও ভ্যানিলা নোটের কম্বিনেশন। একটি মার্জিত ও আকর্ষণীয় সুগন্ধ।',
     features: ['৯-১১ ঘন্টা স্থায়ী', 'ল্যাভেন্ডার ও ভ্যানিলা', 'প্রিমিয়াম ব্র্যান্ড']
   },
@@ -104,7 +110,8 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/1961797/pexels-photo-1961797.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
       'https://images.pexels.com/photos/965993/pexels-photo-965993.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
     ],
-    video: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_5mb.mp4',
+    video: 'https://www.youtube.com/watch?v=example123',
+    videoType: 'youtube',
     description: 'আকর্ষণীয় ফ্রেশ ও মেরিন ঘ্রাণ। সমুদ্রের তাজা বাতাসের মতো সুগন্ধ।',
     features: ['১০-১২ ঘন্টা স্থায়ী', 'ফ্রেশ ও মেরিন', 'আকর্ষণীয় সুগন্ধ']
   },
@@ -117,7 +124,8 @@ export const products: Product[] = [
     originalPrice: 8000,
     ml: 100,
     color: 'Pink',
-    video: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
+    video: 'https://www.facebook.com/watch/?v=tender123',
+    videoType: 'facebook',
     description: 'ফ্রুটি ও ফ্লোরাল, ডেইলি ইউজের জন্য পারফেক্ট। মহিলাদের জন্য একটি চমৎকার পছন্দ।',
     features: ['৮-১০ ঘন্টা স্থায়ী', 'ফ্রুটি ও ফ্লোরাল', 'ডেইলি ইউজের জন্য']
   },
@@ -135,6 +143,8 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/1190832/pexels-photo-1190832.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
       'https://images.pexels.com/photos/965990/pexels-photo-965990.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
     ],
+    video: 'https://youtu.be/acqua456',
+    videoType: 'youtube',
     description: 'ডিপ অ্যাকুয়াটিক ও উডি ঘ্রাণ। একটি গভীর ও আকর্ষণীয় সুগন্ধ।',
     features: ['১১-১৩ ঘন্টা স্থায়ী', 'ডিপ অ্যাকুয়াটিক', 'উডি ঘ্রাণ']
   }

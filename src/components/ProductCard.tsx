@@ -72,9 +72,47 @@ export const ProductCard: React.FC<ProductCardProps> = memo(({ product, onViewDe
     }
   };
 
+  const getYouTubeVideoId = (url: string) => {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  };
+
+  const getYouTubeThumbnail = (url: string) => {
+    const videoId = getYouTubeVideoId(url);
+    return videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : null;
+  };
+
+  const handleVideoPlay = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (product.video) {
+      if (product.videoType === 'youtube' || product.videoType === 'facebook') {
+        setShowVideo(true);
+      } else {
+        window.open(product.video, '_blank');
+      }
+    }
+  };
+
+  const getEmbedUrl = () => {
+    if (!product.video) return '';
+    
+    if (product.videoType === 'youtube') {
+      const videoId = getYouTubeVideoId(product.video);
+      return videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1` : '';
+    } else if (product.videoType === 'facebook') {
+      return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(product.video)}&show_text=false&autoplay=true`;
+    }
+    return product.video;
+  };
+
   const hasImages = product.images && product.images.length > 0;
   const hasVideo = product.video;
   const hasMultipleImages = product.images && product.images.length > 1;
+
+  // Use YouTube thumbnail if available, otherwise use first product image
+  const displayImage = hasImages ? product.images[currentImageIndex] : 
+    (hasVideo && product.videoType === 'youtube' ? getYouTubeThumbnail(product.video) : null);
 
   return (
     <div 
@@ -85,28 +123,28 @@ export const ProductCard: React.FC<ProductCardProps> = memo(({ product, onViewDe
       <div className="relative h-48 sm:h-56 md:h-64 bg-gradient-to-br from-purple-50 to-pink-50">
         {showVideo && hasVideo ? (
           <div className="relative w-full h-full">
-            <video
-              src={product.video}
-              controls
-              className="w-full h-full object-cover"
-              onEnded={() => setShowVideo(false)}
-              preload="none"
-              onClick={(e) => e.stopPropagation()}
+            <iframe
+              src={getEmbedUrl()}
+              className="w-full h-full"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title={`${product.name} video`}
             />
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 setShowVideo(false);
               }}
-              className="absolute top-2 right-2 bg-black/50 text-white rounded-full p-2 hover:bg-black/70 transition-colors"
+              className="absolute top-2 right-2 bg-black/50 text-white rounded-full p-2 hover:bg-black/70 transition-colors z-10"
             >
               ✕
             </button>
           </div>
-        ) : hasImages ? (
+        ) : displayImage ? (
           <>
             <OptimizedImage
-              src={product.images[currentImageIndex]}
+              src={displayImage}
               alt={product.name}
               className="w-full h-full transition-transform duration-500 hover:scale-105"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -130,27 +168,32 @@ export const ProductCard: React.FC<ProductCardProps> = memo(({ product, onViewDe
             )}
             
             {hasVideo && (
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShowVideo(true);
-                }}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black/70 text-white rounded-full p-3 sm:p-4 hover:bg-black/80 transition-colors"
-              >
-                <Play className="h-4 w-4 sm:h-6 sm:w-6" />
-              </button>
+              <>
+                <button
+                  onClick={handleVideoPlay}
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black/70 text-white rounded-full p-3 sm:p-4 hover:bg-black/80 transition-colors"
+                >
+                  <Play className="h-4 w-4 sm:h-6 sm:w-6" />
+                </button>
+                
+                {/* Video Platform Badge */}
+                <div className="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded flex items-center space-x-1">
+                  {product.videoType === 'youtube' && (
+                    <>
+                      <div className="w-2 h-2 bg-red-600 rounded-sm"></div>
+                      <span>YouTube</span>
+                    </>
+                  )}
+                  {product.videoType === 'facebook' && (
+                    <>
+                      <div className="w-2 h-2 bg-blue-600 rounded-sm"></div>
+                      <span>Facebook</span>
+                    </>
+                  )}
+                </div>
+              </>
             )}
           </>
-        ) : hasVideo ? (
-          <div className="relative w-full h-full">
-            <video
-              src={product.video}
-              controls
-              className="w-full h-full object-cover"
-              preload="none"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </div>
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-gray-200">
             <Package className="h-12 w-12 sm:h-16 sm:w-16 text-gray-400" />
@@ -158,7 +201,7 @@ export const ProductCard: React.FC<ProductCardProps> = memo(({ product, onViewDe
         )}
         
         {/* Category Badge */}
-        <div className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-white/90 backdrop-blur-sm rounded-full px-2 sm:px-3 py-1 flex items-center space-x-1">
+        <div className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-white/90 backdrop-blur-sm rounded-full px-2 sm:px-3 py-1 flex items-center space-x-1">
           {getCategoryIcon(product.category)}
           <span className="text-xs font-medium text-gray-700">
             {getCategoryName(product.category)}
@@ -166,7 +209,7 @@ export const ProductCard: React.FC<ProductCardProps> = memo(({ product, onViewDe
         </div>
 
         {/* Gender Badge */}
-        <div className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-purple-600 text-white rounded-full px-2 sm:px-3 py-1">
+        <div className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 bg-purple-600 text-white rounded-full px-2 sm:px-3 py-1">
           <span className="text-xs font-medium">
             {product.gender === 'men' ? 'পুরুষ' : 'মহিলা'}
           </span>

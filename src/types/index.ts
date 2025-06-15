@@ -9,6 +9,7 @@ export interface Product {
   color: string;
   images: string[];
   video?: string;
+  videoType?: 'youtube' | 'facebook' | 'direct';
   description: string;
   features: string[];
 }
