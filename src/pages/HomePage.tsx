@@ -4,6 +4,9 @@ import { ProductFilter } from '../components/ProductFilter';
 import { ProductCard } from '../components/ProductCard';
 import { ProductDetailsModal } from '../components/ProductDetailsModal';
 import { VideoTestimonials } from '../components/VideoTestimonials';
+import { AboutSection } from '../components/AboutSection';
+import { ReviewsSection } from '../components/ReviewsSection';
+import { ContactSection } from '../components/ContactSection';
 import { products } from '../data/products';
 import { Product } from '../types';
 
@@ -41,8 +44,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
 
   return (
     <div>
+      {/* Hero Section */}
       <Hero onNavigate={onPageChange} />
       
+      {/* Products Section */}
       <div id="products-section" className="bg-gray-50 py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
@@ -86,6 +91,21 @@ export const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
 
       {/* Video Testimonials Section */}
       <VideoTestimonials />
+
+      {/* About Section */}
+      <div id="about-section">
+        <AboutSection />
+      </div>
+
+      {/* Reviews Section */}
+      <div id="reviews-section">
+        <ReviewsSection />
+      </div>
+
+      {/* Contact Section */}
+      <div id="contact-section">
+        <ContactSection />
+      </div>
 
       {/* Product Details Modal */}
       {selectedProduct && (

@@ -6,9 +6,19 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
-  const handleNavigation = (page: string) => {
-    onPageChange(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleNavigation = (sectionId: string) => {
+    onPageChange('home');
+    // Wait for page to load then scroll
+    setTimeout(() => {
+      if (sectionId === 'top') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }, 100);
   };
 
   return (
@@ -56,15 +66,15 @@ export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
             <h4 className="text-lg font-semibold">দ্রুত লিংক</h4>
             <ul className="space-y-2">
               {[
-                { name: 'হোম', key: 'home' },
-                { name: 'আমাদের সম্পর্কে', key: 'about' },
-                { name: 'প্রোডাক্ট', key: 'home' },
-                { name: 'কাস্টমার রিভিউ', key: 'reviews' },
-                { name: 'যোগাযোগ', key: 'contact' }
+                { name: 'হোম', scrollTo: 'top' },
+                { name: 'প্রোডাক্ট', scrollTo: 'products-section' },
+                { name: 'আমাদের সম্পর্কে', scrollTo: 'about-section' },
+                { name: 'কাস্টমার রিভিউ', scrollTo: 'reviews-section' },
+                { name: 'যোগাযোগ', scrollTo: 'contact-section' }
               ].map((item) => (
-                <li key={item.key}>
+                <li key={item.scrollTo}>
                   <button 
-                    onClick={() => handleNavigation(item.key)}
+                    onClick={() => handleNavigation(item.scrollTo)}
                     className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base text-left w-full"
                   >
                     {item.name}
@@ -87,7 +97,7 @@ export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
               ].map((category) => (
                 <li key={category}>
                   <button 
-                    onClick={() => handleNavigation('home')}
+                    onClick={() => handleNavigation('products-section')}
                     className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base text-left w-full"
                   >
                     {category}
@@ -124,7 +134,6 @@ export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-xs sm:text-sm">
             © Mahima Perfumery Co. সর্বস্বত্ব সংরক্ষিত | ডিজাইন ও ডেভেলপমেন্ট | মেনেজমেন্ট
-
           </p>
         </div>
       </div>

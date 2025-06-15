@@ -10,19 +10,43 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
-    { name: 'হোম', key: 'home' },
-    { name: 'আমাদের সম্পর্কে', key: 'about' },
-    { name: 'কাস্টমার রিভিউ', key: 'reviews' },
-    { name: 'যোগাযোগ', key: 'contact' },
+    { name: 'হোম', key: 'home', scrollTo: 'top' },
+    { name: 'প্রোডাক্ট', key: 'products', scrollTo: 'products-section' },
+    { name: 'আমাদের সম্পর্কে', key: 'about', scrollTo: 'about-section' },
+    { name: 'কাস্টমার রিভিউ', key: 'reviews', scrollTo: 'reviews-section' },
+    { name: 'যোগাযোগ', key: 'contact', scrollTo: 'contact-section' },
   ];
+
+  const handleNavigation = (item: typeof navigation[0]) => {
+    if (currentPage !== 'home') {
+      onPageChange('home');
+      // Wait for page to load then scroll
+      setTimeout(() => {
+        scrollToSection(item.scrollTo);
+      }, 100);
+    } else {
+      scrollToSection(item.scrollTo);
+    }
+    setIsMenuOpen(false);
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    if (sectionId === 'top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center cursor-pointer" onClick={() => onPageChange('home')}>
-           
+          <div className="flex items-center cursor-pointer" onClick={() => handleNavigation(navigation[0])}>
             <div>
               <h1 className="text-xl font-bold text-gray-900">Mahima Perfumery</h1>
               <p className="text-xs text-purple-600">Premium Fragrances</p>
@@ -34,9 +58,9 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => 
             {navigation.map((item) => (
               <button
                 key={item.key}
-                onClick={() => onPageChange(item.key)}
+                onClick={() => handleNavigation(item)}
                 className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                  currentPage === item.key
+                  currentPage === 'home' && item.key === 'home'
                     ? 'text-purple-600 border-b-2 border-purple-600'
                     : 'text-gray-700 hover:text-purple-600'
                 }`}
@@ -89,12 +113,9 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => 
               {navigation.map((item) => (
                 <button
                   key={item.key}
-                  onClick={() => {
-                    onPageChange(item.key);
-                    setIsMenuOpen(false);
-                  }}
+                  onClick={() => handleNavigation(item)}
                   className={`text-left px-3 py-2 text-sm font-medium transition-colors ${
-                    currentPage === item.key
+                    currentPage === 'home' && item.key === 'home'
                       ? 'text-purple-600'
                       : 'text-gray-700 hover:text-purple-600'
                   }`}
