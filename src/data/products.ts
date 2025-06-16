@@ -8,13 +8,13 @@ export const products: Product[] = [
   gender: 'men',
   price: 6500,
   originalPrice: 8000,
-  ml: 100,
+  ml: 15,
   color: 'Blue',
   images: [
     'https://images.pexels.com/photos/965990/pexels-photo-965990.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
     'https://images.pexels.com/photos/1961792/pexels-photo-1961792.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
   ],
-  video: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+  video: 'https://youtu.be/EPFN7ARDbz8',
   videoType: 'youtube',
   description: `ফ্রেশ, স্পাইসি ও মাসকুলিন ঘ্রাণ। পুরুষদের জন্য আদর্শ একটি প্রিমিয়াম পারফিউম।
 
@@ -33,15 +33,13 @@ export const products: Product[] = [
     gender: 'women',
     price: 5800,
     originalPrice: 7500,
-    ml: 80,
+    ml: 30,
     color: 'Black',
     images: [
-      'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
-      'https://images.pexels.com/photos/1961793/pexels-photo-1961793.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
-      'https://images.pexels.com/photos/1190830/pexels-photo-1190830.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
+      
     ],
-    video: 'https://www.facebook.com/watch/?v=123456789',
-    videoType: 'facebook',
+    video: 'https://youtu.be/EPFN7ARDbz8',
+    videoType: 'youtube',
     description: 'মিষ্টি ও স্পাইসি ঘ্রাণ, অনেক জনপ্রিয়। মহিলাদের জন্য একটি আকর্ষণীয় পারফিউম।',
     features: ['৮-১০ ঘন্টা স্থায়ী', 'মিষ্টি ও স্পাইসি', 'জনপ্রিয় ব্র্যান্ড']
   },
@@ -52,12 +50,12 @@ export const products: Product[] = [
     gender: 'men',
     price: 7200,
     originalPrice: 8000,
-    ml: 100,
+    ml: 60,
     color: 'Blue',
     images: [
       'https://images.pexels.com/photos/1961794/pexels-photo-1961794.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
     ],
-    video: 'https://youtu.be/dQw4w9WgXcQ',
+    video: 'https://youtu.be/EPFN7ARDbz8',
     videoType: 'youtube',
     description: 'উডি-অ্যারোমাটিক টাইপ, অফিস এবং ডেটের জন্য পারফেক্ট।',
     features: ['১২+ ঘন্টা স্থায়ী', 'উডি-অ্যারোমাটিক', 'অফিসের জন্য আদর্শ']
@@ -69,7 +67,7 @@ export const products: Product[] = [
     gender: 'women',
     price: 6800,
     originalPrice: 8000,
-    ml: 90,
+    ml: 15,
     color: 'Gold',
     images: [
       'https://images.pexels.com/photos/1190830/pexels-photo-1190830.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
@@ -89,7 +87,7 @@ export const products: Product[] = [
     gender: 'men',
     price: 5500,
     originalPrice: 7000,
-    ml: 60,
+    ml: 30,
     color: 'Silver',
     images: [
       'https://images.pexels.com/photos/965992/pexels-photo-965992.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
@@ -102,15 +100,15 @@ export const products: Product[] = [
     name: 'Aroma Dylan Marine',
     category: 'wholesale',
     gender: 'men',
-    price: 6200,
+    price:  0,
     originalPrice: 7800,
-    ml: 100,
+    ml: 60,
     color: 'Blue',
     images: [
       'https://images.pexels.com/photos/1961797/pexels-photo-1961797.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
       'https://images.pexels.com/photos/965993/pexels-photo-965993.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
     ],
-    video: 'https://www.youtube.com/watch?v=example123',
+    video: 'https://youtu.be/EPFN7ARDbz8',
     videoType: 'youtube',
     description: 'আকর্ষণীয় ফ্রেশ ও মেরিন ঘ্রাণ। সমুদ্রের তাজা বাতাসের মতো সুগন্ধ।',
     features: ['১০-১২ ঘন্টা স্থায়ী', 'ফ্রেশ ও মেরিন', 'আকর্ষণীয় সুগন্ধ']
@@ -143,7 +141,7 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/1190832/pexels-photo-1190832.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
       'https://images.pexels.com/photos/965990/pexels-photo-965990.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
     ],
-    video: 'https://youtu.be/acqua456',
+    video: 'https://youtu.be/EPFN7ARDbz8',
     videoType: 'youtube',
     description: 'ডিপ অ্যাকুয়াটিক ও উডি ঘ্রাণ। একটি গভীর ও আকর্ষণীয় সুগন্ধ।',
     features: ['১১-১৩ ঘন্টা স্থায়ী', 'ডিপ অ্যাকুয়াটিক', 'উডি ঘ্রাণ']
