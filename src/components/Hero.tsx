@@ -38,7 +38,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               <div className="flex items-center justify-center lg:justify-start">
                 <img 
                   src="/logo.png" 
-                  alt="Mahima Perfumery Co." 
+                  alt="Mahima Perfumery Co. | Best Perfumes in Bangladesh" 
                   className="h-[6rem] w-[auto] filter brightness-0 invert"
                   loading="eager"
                 />
@@ -82,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-full mb-2 mx-auto">
                   <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-400" />
                 </div>
-                <div className="text-lg sm:text-2xl font-bold">১০-২০ ঘন্টা</div>
+                <div className="text-lg sm:text-2xl font-bold">১২-২৪ ঘন্টা</div>
                 <div className="text-xs sm:text-sm text-purple-200">পর্যন্ত স্থায়ী</div>
               </div>
             </div>
@@ -112,7 +112,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <div className="w-full h-64 sm:h-80 rounded-2xl overflow-hidden shadow-2xl">
                   <OptimizedImage
                     src="https://images.pexels.com/photos/965990/pexels-photo-965990.jpeg"
-                    alt="Aroma Perfume"
+                    alt="Aroma Perfume best perfume in Bangladesh"
                     className="w-full h-full"
                     priority
                   />

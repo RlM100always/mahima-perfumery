@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { Helmet } from 'react-helmet';
 import { Hero } from '../components/Hero';
 import { ProductFilter } from '../components/ProductFilter';
 import { ProductCard } from '../components/ProductCard';
@@ -44,6 +45,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
 
   return (
     <div>
+
+      {/* ✅ SEO Helmet Tags */}
+      <Helmet>
+        <title>Mahima Perfumery | Premium & Budget Perfumes in Bangladesh</title>
+        <meta name="description" content="Discover long-lasting, budget-friendly perfumes in Bangladesh. Mahima Perfumery offers premium unisex fragrances for daily and special occasions." />
+        <meta name="keywords" content="Mahima Perfumery, perfume Bangladesh, budget perfume BD, long-lasting perfume, unisex perfume, online perfume store" />
+        <meta property="og:title" content="Mahima Perfumery | Premium Perfumes in Bangladesh" />
+        <meta property="og:description" content="Buy elegant and affordable perfumes from Mahima Perfumery. Premium, long-lasting unisex fragrances with nationwide delivery." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.mahimaperfumery.com/" />
+        <meta property="og:image" content="https://www.mahimaperfumery.com/header.jpg" />
+        <link rel="canonical" href="https://www.mahimaperfumery.com/" />
+      </Helmet>
       {/* Hero Section */}
       <Hero onNavigate={onPageChange} />
       
@@ -51,9 +65,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
       <div id="products-section" className="bg-gray-50 py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              আমাদের <span className="text-purple-600">প্রিমিয়াম</span> কালেকশন
-            </h2>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              মাহিমা পারফিউমারি কো. এর <span className="text-purple-600">প্রিমিয়াম এবং বাজেট </span> ফ্রেন্ডলি কালেকশন
+
+            </h1>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
               প্রতিটি পারফিউম তৈরি হয়েছে এমনভাবে, যাতে এটি আপনাকে দীর্ঘ সময় সুগন্ধিত ও ব্যক্তিত্বসম্পন্ন রাখে।
             </p>

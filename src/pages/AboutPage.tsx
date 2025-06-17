@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Award, Users, Clock, Heart, Shield, Truck } from 'lucide-react';
 
 export const AboutPage: React.FC = () => {
@@ -37,44 +38,64 @@ export const AboutPage: React.FC = () => {
 
   return (
     <div className="py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
+      {/* ✅ SEO Meta Tags */}
+      <Helmet>
+        <title>আমাদের সম্পর্কে | Mahima Perfumery Co.</title>
+        <meta
+          name="description"
+          content="Mahima Perfumery Co. বাংলাদেশের সেরা পারফিউম ব্র্যান্ড যা প্রিমিয়াম মানের ঘ্রাণ সাশ্রয়ী মূল্যে সরবরাহ করে। আমাদের সম্পর্কে আরও জানুন।"
+        />
+        <meta
+          name="keywords"
+          content="Mahima Perfumery, পারফিউম বাংলাদেশ, perfume Bangladesh, affordable perfume, premium fragrance, student perfume, men women perfume"
+        />
+        <link rel="canonical" href="https://www.mahimaperfumery.com" />
+        <meta property="og:title" content="আমাদের সম্পর্কে | Mahima Perfumery" />
+        <meta
+          property="og:description"
+          content="জানুন কীভাবে Mahima Perfumery Co. বাংলাদেশের মানুষের মাঝে সাশ্রয়ী ও দীর্ঘস্থায়ী পারফিউম পৌঁছে দিচ্ছে।"
+        />
+        <meta property="og:url" content="https://www.mahimaperfumery.com" />
+        <meta
+          property="og:image"
+          content="https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg"
+        />
+      </Helmet>
+
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             আমাদের <span className="text-purple-600">পরিচয়</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Mahima Perfumery Co. একটি বিশ্বস্ত ব্র্যান্ড যা স্টুডেন্ট ও পেশাজীবীদের জন্য 
-            সাশ্রয়ী মূল্যে প্রিমিয়াম কোয়ালিটির পারফিউম সরবরাহ করে থাকে।
+            Mahima Perfumery Co. একটি বিশ্বস্ত বাংলাদেশি ব্র্যান্ড, যারা স্টুডেন্ট ও পেশাজীবীদের জন্য সাশ্রয়ী মূল্যে
+            প্রিমিয়াম পারফিউম সরবরাহ করে।
           </p>
-        </div>
+        </header>
 
-        {/* Story Section */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          <div className="space-y-6">
+        {/* Our Story Section */}
+        <section className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+          <article className="space-y-6">
             <h2 className="text-3xl font-bold text-gray-900">আমাদের গল্প</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                ২০২২ সালে আমাদের যাত্রা শুরু হয়েছিল একটি সাধারণ লক্ষ্য নিয়ে - 
-                প্রতিটি মানুষের কাছে গুণগত পারফিউম সাশ্রয়ী মূল্যে পৌঁছে দেওয়া।
+                ২০২২ সালে আমাদের যাত্রা শুরু হয়েছিল একটি সাধারণ লক্ষ্য নিয়ে - প্রতিটি মানুষের কাছে গুণগত পারফিউম সাশ্রয়ী মূল্যে পৌঁছে দেওয়া।
               </p>
               <p>
-                আমরা লক্ষ্য করেছিলাম যে বাজারে উন্নত মানের পারফিউমের দাম অনেক বেশি, 
-                যা স্টুডেন্ট ও নতুন পেশাজীবীদের নাগালের বাইরে। এই সমস্যার সমাধানে 
-                আমরা শুরু করি Aroma কালেকশন।
+                বাজারে উন্নত মানের পারফিউমের দাম অনেক বেশি ছিল, যা স্টুডেন্ট ও নতুন পেশাজীবীদের জন্য ব্যয়বহুল। আমরা তৈরি করি Aroma কালেকশন — একটি মানসম্মত ঘ্রাণের সমাধান।
               </p>
               <p>
-                আজ আমরা গর্বিত যে ৫০০০+ গ্রাহক আমাদের উপর আস্থা রেখেছেন এবং 
-                আমাদের পণ্য ব্যবহার করে নিজেদের আত্মবিশ্বাস বাড়িয়েছেন।
+                আজ আমাদের ৫০০০+ সন্তুষ্ট গ্রাহক রয়েছেন, যারা আমাদের ঘ্রাণ ব্যবহার করে আত্মবিশ্বাস অর্জন করেছেন।
               </p>
             </div>
-          </div>
-          
+          </article>
+
           <div className="relative">
             <img
               src="https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg"
-              alt="Our Story"
+              alt="Mahima Perfumery Story - perfume Bangladesh"
               className="rounded-2xl shadow-2xl"
+              loading="lazy"
             />
             <div className="absolute -bottom-6 -right-6 bg-purple-600 text-white p-6 rounded-xl shadow-lg">
               <div className="text-center">
@@ -83,36 +104,34 @@ export const AboutPage: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Mission & Vision */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
+        <section className="grid md:grid-cols-2 gap-8 mb-20">
           <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">আমাদের লক্ষ্য</h3>
             <p className="text-gray-700 leading-relaxed">
-              প্রতিটি স্টুডেন্ট ও পেশাজীবীর কাছে প্রিমিয়াম কোয়ালিটির পারফিউম সাশ্রয়ী মূল্যে 
-              পৌঁছে দেওয়া এবং তাদের আত্মবিশ্বাস ও ব্যক্তিত্ব বৃদ্ধিতে সহায়তা করা।
+              বাংলাদেশের প্রতিটি স্টুডেন্ট ও পেশাজীবীর কাছে মানসম্মত ও বাজেট-ফ্রেন্ডলি পারফিউম পৌঁছে দেওয়া।
             </p>
           </div>
-          
+
           <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">আমাদের দৃষ্টিভঙ্গি</h3>
             <p className="text-gray-700 leading-relaxed">
-              বাংলাদেশের প্রতিটি জেলায় Mahima Perfumery Co. এর নাম পৌঁছে দেওয়া এবং 
-              আন্তর্জাতিক মানের পারফিউম স্থানীয় ভাবে উৎপাদন করে দেশের অর্থনীতিতে অবদান রাখা।
+              বাংলাদেশের প্রতিটি ঘরে পৌঁছানো এবং দেশীয় উৎপাদিত পারফিউম বিশ্বমঞ্চে তুলে ধরা।
             </p>
           </div>
-        </div>
+        </section>
 
-        {/* Features Grid */}
-        <div className="mb-16">
+        {/* Why Choose Us Features */}
+        <section className="mb-16">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            কেন <span className="text-purple-600">আমাদের</span> বেছে নেবেন ?
+            কেন <span className="text-purple-600">আমাদের</span> বেছে নেবেন?
           </h2>
-          
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div
+              <article
                 key={index}
                 className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
               >
@@ -125,36 +144,30 @@ export const AboutPage: React.FC = () => {
                 <p className="text-gray-600 leading-relaxed">
                   {feature.description}
                 </p>
-              </div>
+              </article>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Team Values */}
-        <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-12 text-center">
+        {/* Core Values */}
+        <section className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-12 text-center">
           <h2 className="text-3xl font-bold mb-6">আমাদের মূল্যবোধ</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div>
+            <article>
               <h3 className="text-xl font-semibold mb-2">সততা</h3>
-              <p className="text-purple-100">
-                আমরা সর্বদা সৎ ও স্বচ্ছভাবে ব্যবসা পরিচালনা করি।
-              </p>
-            </div>
-            <div>
+              <p className="text-purple-100">আমরা সর্বদা সৎ ও স্বচ্ছভাবে ব্যবসা পরিচালনা করি।</p>
+            </article>
+            <article>
               <h3 className="text-xl font-semibold mb-2">গুণগত মান</h3>
-              <p className="text-purple-100">
-                কোয়ালিটিতে কোনো প্রকার আপস করি না আমরা।
-              </p>
-            </div>
-            <div>
+              <p className="text-purple-100">কোয়ালিটিতে কোনো প্রকার আপস করি না আমরা।</p>
+            </article>
+            <article>
               <h3 className="text-xl font-semibold mb-2">গ্রাহক সেবা</h3>
-              <p className="text-purple-100">
-                গ্রাহক সন্তুষ্টিই আমাদের প্রধান লক্ষ্য।
-              </p>
-            </div>
+              <p className="text-purple-100">গ্রাহক সন্তুষ্টিই আমাদের প্রধান লক্ষ্য।</p>
+            </article>
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
   );
 };
