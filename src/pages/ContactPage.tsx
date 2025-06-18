@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
+
 import { MapPin, Phone, Mail, Clock, MessageCircle, Facebook, Send } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
@@ -27,6 +29,29 @@ export const ContactPage: React.FC = () => {
 
   return (
     <div className="py-16">
+         {/* ✅ SEO Meta Tags */}
+             <Helmet>
+               <title>Contact Page Mahima Perfumery Co.</title>
+               <meta
+                 name="description"
+                 content="Mahima Perfumery Co. বাংলাদেশের সেরা পারফিউম ব্র্যান্ড যা প্রিমিয়াম মানের ঘ্রাণ সাশ্রয়ী মূল্যে সরবরাহ করে। আমাদের সম্পর্কে আরও জানুন।"
+               />
+                <meta
+       name="keywords"
+         content="perfume price in Bangladesh, Mahima Perfumery, perfume Bangladesh, budget perfume BD, long-lasting perfume, unisex perfume, online perfume store ,long lasting perfume for men, best perfume for women, attar for men, branded perfume in BD, original perfume BD, cheap perfume in Bangladesh, pocket perfume BD, Perfume shop Bangladesh, Low price perfume in bangladesh, Top 10 Perfume brands for male in bangladesh with price, Men Perfume price in bangladesh, Top 10 perfume in bangladesh with price, wholesale perfume, wholesale perfume in bd, wholesale perfume in bangladesh, paikari perfume, পাইকারি পারফিউম, খুচরা পারফিউম, জনপ্রিয় পারফিউম, পারফিউম হাব বাংলাদেশ, রিসেলার পারফিউম, পাইকারি পারফিউম এর দাম, পারফিউম বিজনেস, সুগন্ধি প্রাইস ইন বাংলাদেশ, কম দামি পারফিউম, ৫-৮ ঘন্টা স্থায়ী পারফিউম, ১০-২০ ঘন্টা স্থায়ী পারফিউম, ১-২ দিন স্থায়ী পারফিউম, বেস্ট পারফিউম প্রস্ততকারক ইন বাংলাদেশ, ভালো মানের পারফিউম, কম দামের ভালো মানের পারফিউম, low price good quality perfumes, Students budget friendly perfumes in bd, Budget friendly perfumes in bd, বাজেট ফ্রেন্ডলি পারফিউম, বেস্ট রিভিউ পারফিউম, bd perfume, oud perfume price in BD, musk perfume BD, sweet perfume for women BD, spicy perfume for men, best perfume under 1000 in Bangladesh, perfume under 500 taka, affordable perfume BD, best perfume for women in Bangladesh, body spray for girls BD, floral perfume for women, wholesale oud perfume BD, wholesale attar BD, পাইকারি আরবী পারফিউম, পাইকারি অটারের দাম, পারফিউম রিসেলার BD, artisanal perfume Bangladesh, eco‑friendly perfume BD, halal perfume Bangladesh, perfume decants BD, perfume balm wax BD, perfume shop BD, perfume store Dhaka, online perfume Bangladesh, discount perfume outlet BD, perfume mall BD, perfume under 500 BD, perfume under 1000 BD, cheap EDP BD, discount perfume BD, budget perfume online Bangladesh, body mist BD, body spray BD, unisex perfume BD, women’s floral EDP BD, floral perfume BD, jasmine perfume Bangladesh, rose scent perfume BD, citrus perfume BD, oud perfume BD, sandalwood perfume BD, patchouli perfume Bangladesh, amber perfume BD, vanilla perfume BD, chocolate musk perfume BD"
+       />
+               <link rel="canonical" href="https://www.mahimaperfumery.com" />
+               <meta property="og:title" content="Contact Page | Mahima Perfumery Contact Page" />
+               <meta
+                 property="og:description"
+                 content="জানুন কীভাবে Mahima Perfumery Co. বাংলাদেশের মানুষের মাঝে সাশ্রয়ী ও দীর্ঘস্থায়ী পারফিউম পৌঁছে দিচ্ছে।"
+               />
+               <meta property="og:url" content="https://www.mahimaperfumery.com" />
+               <meta
+                 property="og:image"
+                 content="/public/logo.png"
+               />
+             </Helmet>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">

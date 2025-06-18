@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
               />
             </div>
             <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-              স্টুডেন্ট ও পেশাজীবীদের জন্য সাশ্রয়ী মূল্যে প্রিমিয়াম কোয়ালিটির পারফিউম। 
+              শিক্ষার্থী, চাকরিজীবী, শিক্ষক ও পেশাজীবীদের জন্য সাশ্রয়ী মূল্যে প্রিমিয়াম কোয়ালিটির পারফিউম। 
               আমাদের লক্ষ্য প্রতিটি গ্রাহকের কাছে সেরা সুগন্ধ পৌঁছে দেওয়া।
             </p>
             <div className="flex space-x-3">

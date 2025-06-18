@@ -151,16 +151,20 @@ export const ReviewsSection: React.FC = () => {
           </div>
         )}
 
-        {/* Call to Action */}
-        <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-8 text-center">
-          <h3 className="text-2xl font-bold mb-4">আপনিও রিভিউ দিন</h3>
-          <p className="text-purple-100 mb-6">
-            আমাদের পণ্য ব্যবহার করে আপনার অভিজ্ঞতা শেয়ার করুন এবং অন্যদের সাহায্য করুন
-          </p>
-          <button className="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
-            রিভিউ লিখুন
-          </button>
-        </div>
+        <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-8 mt-16 text-center">
+  <h3 className="text-2xl font-bold mb-4">আপনিও রিভিউ দিন</h3>
+  <p className="text-purple-100 mb-6">
+    আমাদের পণ্য ব্যবহার করে আপনার অভিজ্ঞতা শেয়ার করুন এবং অন্যদের সাহায্য করুন
+  </p>
+ <a
+  href="https://wa.me/8801825008451"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+>
+  রিভিউ লিখুন
+</a>
+</div>
       </div>
     </div>
   );

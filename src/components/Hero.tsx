@@ -55,7 +55,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               </h1>
               
               <p className="text-base sm:text-lg lg:text-xl text-purple-100 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                স্টুডেন্ট ও পেশাজীবীদের জন্য সাশ্রয়ী মূল্যে প্রিমিয়াম কোয়ালিটির পারফিউম। 
+                শিক্ষার্থী, চাকরিজীবী, শিক্ষক ও পেশাজীবীদের জন্য সাশ্রয়ী মূল্যে প্রিমিয়াম কোয়ালিটির পারফিউম। 
                 দীর্ঘস্থায়ী সুগন্ধ ও আকর্ষণীয় প্যাকেজিং।
               </p>
             </div>
