@@ -242,10 +242,10 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
               </div>
               
               <div className="flex items-center space-x-3 mb-4">
-                <span className="text-2xl sm:text-3xl font-bold text-purple-600">৳{product.price}</span>
+                <span className="text-2xl sm:text-3xl font-bold text-purple-600">{product.price}</span>
                 {product.originalPrice && (
                   <>
-                    <span className="text-lg sm:text-xl text-gray-400 line-through">৳{product.originalPrice}</span>
+                    <span className="text-lg sm:text-xl text-gray-400 line-through">{product.originalPrice}</span>
                     <span className="text-sm bg-red-500 text-white px-2 py-1 rounded-full">
                       {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% ছাড়
                     </span>
@@ -253,12 +253,12 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
                 )}
               </div>
               
-              <div className="flex items-center space-x-1 mb-6">
+              {/* <div className="flex items-center space-x-1 mb-6">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />
                 ))}
                 <span className="text-sm text-gray-600 ml-2">(৪.৯ - ১২৫০+ রিভিউ)</span>
-              </div>
+              </div> */}
             </div>
 
             <div>

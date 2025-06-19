@@ -283,17 +283,17 @@ export const ProductCard: React.FC<ProductCardProps> = memo(({ product, onViewDe
         {/* Price Section */}
         <div className="mb-4 sm:mb-6">
           <div className="flex items-center space-x-2">
-            <span className="text-xl sm:text-2xl font-bold text-purple-600">৳{product.price}</span>
+            <span className="text-xl sm:text-2xl font-bold text-purple-600">{product.price}</span>
             {product.originalPrice && (
-              <span className="text-base sm:text-lg text-gray-400 line-through">৳{product.originalPrice}</span>
+              <span className="text-base sm:text-lg text-gray-400 line-through">{product.originalPrice}</span>
             )}
           </div>
-          <div className="flex items-center space-x-1 mt-1">
+          {/* <div className="flex items-center space-x-1 mt-1">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="h-3 w-3 sm:h-4 sm:w-4 text-yellow-500 fill-current" />
             ))}
             <span className="text-xs sm:text-sm text-gray-600 ml-1">(৪.৯)</span>
-          </div>
+          </div> */}
         </div>
 
         {/* Action Buttons */}

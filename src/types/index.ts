@@ -1,13 +1,13 @@
 export interface Product {
   id: string;
-  name: string;
-  category: 'wholesale' | 'retail' | 'package';
-  gender: 'men' | 'women';
-  price: number;
-  originalPrice?: number;
-  ml: number;
-  color: string;
-  images: string[];
+  name?: string;
+  category?: 'wholesale' | 'retail' | 'package';
+  gender?: 'men' | 'women';
+  price?: string |number;
+  originalPrice?: string |number;
+  ml?: string |number;
+  color?: string;
+  images?: string[];
   video?: string;
   videoType?: 'youtube' | 'facebook' | 'direct';
   description: string;
@@ -15,16 +15,16 @@ export interface Product {
 }
 
 export interface CartItem extends Product {
-  quantity: number;
+  quantity?: string |number;
 }
 
 export interface Review {
   id: string;
-  name: string;
-  rating: number;
-  comment: string;
-  date: string;
-  verified: boolean;
+  name?: string;
+  rating?: string |number;
+  comment?: string;
+  date?: string;
+  verified?: boolean;
   source?: 'whatsapp' | 'facebook' | 'google';
   images?: string[];
   productName?: string;
