@@ -14,7 +14,7 @@ export const products: Product[] = [
     'https://images.pexels.com/photos/965990/pexels-photo-965990.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
     'https://images.pexels.com/photos/1961792/pexels-photo-1961792.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
   ],
-  video: 'https://www.facebook.com/watch/?v=1645464262780910',
+  video: '',
   videoType: 'facebook',
   description: `ফ্রেশ, স্পাইসি ও মাসকুলিন ঘ্রাণ। পুরুষদের জন্য আদর্শ একটি প্রিমিয়াম পারফিউম।
 
@@ -39,7 +39,7 @@ export const products: Product[] = [
       
     ],
     video: 'https://youtu.be/EPFN7ARDbz8',
-    videoType: 'youtube',
+    videoType: 'facebook',
     description: 'মিষ্টি ও স্পাইসি ঘ্রাণ, অনেক জনপ্রিয়। মহিলাদের জন্য একটি আকর্ষণীয় পারফিউম।',
     features: ['৮-১০ ঘন্টা স্থায়ী', 'মিষ্টি ও স্পাইসি', 'জনপ্রিয় ব্র্যান্ড']
   },
