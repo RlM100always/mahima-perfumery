@@ -73,10 +73,11 @@ export const ProductCard: React.FC<ProductCardProps> = memo(({ product, onViewDe
   };
 
   const getYouTubeVideoId = (url: string) => {
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-    const match = url.match(regExp);
-    return (match && match[2].length === 11) ? match[2] : null;
-  };
+  const regExp = /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/))([\w-]{11})/;
+  const match = url.match(regExp);
+  return match ? match[1] : null;
+};
+
 
   const getYouTubeThumbnail = (url: string) => {
     const videoId = getYouTubeVideoId(url);
@@ -94,17 +95,25 @@ export const ProductCard: React.FC<ProductCardProps> = memo(({ product, onViewDe
     }
   };
 
-  const getEmbedUrl = () => {
-    if (!product.video) return '';
-    
-    if (product.videoType === 'youtube') {
-      const videoId = getYouTubeVideoId(product.video);
-      return videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1` : '';
-    } else if (product.videoType === 'facebook') {
-      return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(product.video)}&show_text=false&autoplay=true`;
-    }
-    return product.video;
-  };
+const getEmbedUrl = () => {
+  if (!product.video) return '';
+
+  if (product.videoType === 'youtube') {
+    const videoId = getYouTubeVideoId(product.video);
+    return videoId
+      ? `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`
+      : '';
+  }
+
+  if (product.videoType === 'facebook') {
+    return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(product.video)}&show_text=false&autoplay=true`;
+  }
+
+  // For direct .mp4 or similar
+  return product.video;
+};
+
+
 
   const hasImages = product.images && product.images.length > 0;
   const hasVideo = product.video;

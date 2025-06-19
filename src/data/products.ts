@@ -14,8 +14,8 @@ export const products: Product[] = [
     'https://images.pexels.com/photos/965990/pexels-photo-965990.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop',
     'https://images.pexels.com/photos/1961792/pexels-photo-1961792.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop'
   ],
-  video: 'https://youtu.be/EPFN7ARDbz8',
-  videoType: 'youtube',
+  video: 'https://www.facebook.com/watch/?v=1645464262780910',
+  videoType: 'facebook',
   description: `ফ্রেশ, স্পাইসি ও মাসকুলিন ঘ্রাণ। পুরুষদের জন্য আদর্শ একটি প্রিমিয়াম পারফিউম।
 
 পারফিউমের গুরুত্ব (Perfume er Gurutto):
@@ -57,10 +57,10 @@ export const products: Product[] = [
       'https://github.com/RlM100always/Hisab/blob/main/perfume/WhatsApp%20Image%202025-06-19%20at%2010.30.19_8735a196.jpg?raw=true',
       'https://github.com/RlM100always/Hisab/blob/main/perfume/WhatsApp%20Image%202025-06-19%20at%2010.30.22_b99a5e4d.jpg?raw=true'
     ],
-    video: 'https://youtu.be/EPFN7ARDbz8',
+    video: 'https://youtube.com/shorts/_SuLrBBg8DI',
     videoType: 'youtube',
     description: 'উডি-অ্যারোমাটিক টাইপ, অফিস এবং ডেটের জন্য পারফেক্ট।',
-    features: ['১২+ ঘন্টা স্থায়ী', 'উডি-অ্যারোমাটিক', 'অফিসের জন্য আদর্শ']
+    features: ['6-8+ ঘন্টা স্থায়ী', 'উডি-অ্যারোমাটিক', 'অফিসের জন্য আদর্শ']
   },
   {
     id: '4',
