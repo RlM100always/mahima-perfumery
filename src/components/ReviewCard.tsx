@@ -39,47 +39,45 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
   return (
     <>
       <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition-shadow">
-        <div className="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-4">
-          {/* Profile & Images */}
-          <div className="flex items-start space-x-3 sm:space-x-0 sm:flex-col sm:items-center flex-shrink-0">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-lg">
+        <div className="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
+          {/* Profile Initial and Images Section */}
+          <div className="flex flex-col items-center flex-shrink-0 space-y-3">
+            {/* Profile Initial */}
+            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
               {review.name.charAt(0)}
             </div>
 
-            {/* Review Images */}
+            {/* Review Images (horizontally scrollable) */}
             {review.images && review.images.length > 0 && (
-              <div className="flex sm:flex-col space-x-2 sm:space-x-0 sm:space-y-2 sm:mt-3">
-                {review.images.slice(0, 2).map((image, index) => (
+              <div className="flex space-x-2 overflow-x-auto max-w-[160px] sm:max-w-[200px]">
+                {review.images.map((image, index) => (
                   <div
                     key={index}
-                    className="w-24 h-24 sm:w-32 sm:h-32 rounded-lg overflow-hidden flex-shrink-0 cursor-pointer"
+                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden flex-shrink-0 cursor-pointer"
                     onClick={() => setZoomImage(image)}
                   >
                     <OptimizedImage
                       src={image}
                       alt={`Review image ${index + 1}`}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform"
                     />
                   </div>
                 ))}
-                {review.images.length > 2 && (
-                  <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-lg bg-gray-200 flex items-center justify-center text-xs text-gray-600 font-medium flex-shrink-0">
-                    +{review.images.length - 2}
-                  </div>
-                )}
               </div>
             )}
           </div>
 
-          {/* Review Details */}
+          {/* Review Content */}
           <div className="flex-1 min-w-0">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 space-y-2 sm:space-y-0">
               <div className="flex items-center space-x-2">
-                <h4 className="font-semibold text-gray-900 text-sm sm:text-base">{review.name}</h4>
+                <h4 className="font-semibold text-gray-900 text-base">{review.name}</h4>
                 {review.verified && (
-                  <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" title="যাচাইকৃত ক্রেতা" />
+                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" title="যাচাইকৃত ক্রেতা" />
                 )}
               </div>
+
+              {/* Source Badge */}
               {review.source && (
                 <div className="flex items-center space-x-1 bg-gray-100 px-2 py-1 rounded-full flex-shrink-0">
                   {getSourceIcon(review.source)}
@@ -88,13 +86,12 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
               )}
             </div>
 
-            {/* Rating and Meta */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mb-3 space-y-2 sm:space-y-0">
               <div className="flex items-center space-x-1">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`h-3 w-3 sm:h-4 sm:w-4 ${
+                    className={`h-4 w-4 ${
                       i < review.rating ? 'text-yellow-500 fill-current' : 'text-gray-300'
                     }`}
                   />
@@ -108,7 +105,6 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
               )}
             </div>
 
-            {/* Comment */}
             <p className="text-gray-700 leading-relaxed text-sm sm:text-base mb-2">{review.comment}</p>
 
             {/* Location */}
